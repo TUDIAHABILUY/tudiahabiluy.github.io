@@ -46,6 +46,7 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;  /* Eliminar borde */
     width: 100%;
     max-width: 500px;
     text-align: left;
@@ -66,14 +67,14 @@ input[type="number"] {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
-    border: none;  /* Eliminar el borde */
+    border: none;  /* Eliminar borde */
     font-size: 1rem;
     background-color: #F9F9F9;
     transition: all 0.2s ease-in-out;
 }
 
 input:focus {
-    border: none;  /* Restablece el borde */
+    border-color: initial;  /* Restablece el borde */
     outline: none;          /* Elimina el contorno */
     box-shadow: none;       /* Elimina la sombra */
 }
