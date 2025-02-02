@@ -3,14 +3,11 @@ function calcularDiaHabil() {
     let diasHabil = parseInt(document.getElementById("dias").value);
 
     if (!fechaInput || isNaN(diasHabil) || diasHabil <= 0) {
-        mostrarResultado("⚠️ Ingresa una fecha y cantidad de días válidos.", "");
+        mostrarResultado("⚠️ Ingresa una fecha y cantidad de días válidos.");
         return;
     }
 
     let fecha = new Date(fechaInput);
-    let fechaCorrido = new Date(fecha);
-    fechaCorrido.setDate(fechaCorrido.getDate() + diasHabil);
-
     let añoActual = fecha.getFullYear();
     let feriados = obtenerFeriados(añoActual);
     let diasContados = 0;
@@ -30,10 +27,7 @@ function calcularDiaHabil() {
         }
     }
 
-    mostrarResultado(
-        `✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`,
-        `☑️ Día corrido: ${fechaCorrido.toLocaleDateString("es-UY")}`
-    );
+    mostrarResultado(`✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`);
 }
 
 // Función para verificar si un día es feriado o fin de semana
@@ -91,8 +85,7 @@ function obtenerPascua(year) {
     return new Date(year, mes - 1, dia);
 }
 
-// Función para mostrar los resultados en la página
-function mostrarResultado(mensajeHabil, mensajeCorrido) {
+// Función para mostrar el resultado en la página
+function mostrarResultado(mensajeHabil) {
     document.getElementById("resultado").innerText = mensajeHabil;
-    document.getElementById("resultado_corrido").innerText = mensajeCorrido;
 }
