@@ -35,22 +35,35 @@ function esFeriadoOFinDeSemana(fecha, feriados) {
 // Función para obtener feriados del año
 function obtenerFeriados(year) {
     return [
-        `${year}-01-01`, `${year}-05-01`, `${year}-07-18`, `${year}-08-25`, `${year}-12-25`, 
-        obtenerCarnaval(year), obtenerSemanaSanta(year)
+        `${year}-01-01`, // Año Nuevo
+        `${year}-05-01`, // Día de los Trabajadores
+        `${year}-07-18`, // Jura de la Constitución
+        `${year}-08-25`, // Declaratoria de la Independencia
+        `${year}-12-25`, // Navidad
+        obtenerCarnavalLunes(year), 
+        obtenerCarnavalMartes(year),
+        obtenerSemanaSanta(year, -3), // Jueves Santo
+        obtenerSemanaSanta(year, -2)  // Viernes Santo
     ];
 }
 
-// Función para obtener Carnaval (48 días antes de Pascua)
-function obtenerCarnaval(year) {
+// Función para obtener Carnaval (lunes y martes 48 y 47 días antes de Pascua)
+function obtenerCarnavalLunes(year) {
     let pascua = obtenerPascua(year);
     pascua.setDate(pascua.getDate() - 48);
     return pascua.toISOString().split('T')[0];
 }
 
-// Función para obtener Jueves Santo (3 días antes de Pascua)
-function obtenerSemanaSanta(year) {
+function obtenerCarnavalMartes(year) {
     let pascua = obtenerPascua(year);
-    pascua.setDate(pascua.getDate() - 3);
+    pascua.setDate(pascua.getDate() - 47);
+    return pascua.toISOString().split('T')[0];
+}
+
+// Función para obtener Jueves y Viernes Santo (días antes de Pascua)
+function obtenerSemanaSanta(year, diasAntes) {
+    let pascua = obtenerPascua(year);
+    pascua.setDate(pascua.getDate() + diasAntes);
     return pascua.toISOString().split('T')[0];
 }
 
