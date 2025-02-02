@@ -1,21 +1,5 @@
 function calcularDiaHabil() {
-    let fechaInput = document.getElementById("fecha").value;
-    let diasHabil = parseInt(document.getElementById("dias").value);
-
-    // Validar que los días hábiles sean al menos 10
-    if (!fechaInput || isNaN(diasHabil) || diasHabil < 10) {
-        mostrarResultado("⚠️ Ingresa una cantidad de días hábiles válida (mínimo 10 días).");
-        return;
-    }
-
-    let fecha = new Date(fechaInput);
-    let añoActual = fecha.getFullYear();
-    let feriados = obtenerFeriados(añoActual);
-    let diasContados = 0;
-    let fechaHabil = new Date(fecha);
-
-    // Comenzar a contar a partir del siguiente día
-    fechaHabil.setDate(fechaHabil.getDate() + 1);
+    // ... (resto del código sin cambios)
 
     while (diasContados < diasHabil) {
         // Si cambia de año, recalcular los feriados
@@ -23,19 +7,20 @@ function calcularDiaHabil() {
             añoActual = fechaHabil.getFullYear();
             feriados = obtenerFeriados(añoActual);
         }
-
-        // Si el día no es fin de semana ni feriado, contar y avanzar al siguiente día
+        // Si el día no es fin de semana ni feriado, contar
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
-            fechaHabil.setDate(fechaHabil.getDate() + 1);
-        } else {
-            // Si es fin de semana o feriado, solo avanzar al siguiente día
-            fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
+
+        // Avanzar al siguiente día (solo una vez por iteración)
+        fechaHabil.setDate(fechaHabil.getDate() + 1);
     }
 
     mostrarResultado(`✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`);
 }
+
+// ... (resto del código sin cambios)
+
 // Función para verificar si un día es feriado o fin de semana
 function esFeriadoOFinDeSemana(fecha, feriados) {
     let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
