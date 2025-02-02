@@ -1,6 +1,6 @@
 function calcularDiaHabil() {
-    const fechaInput = document.getElementById("fecha").value;
-    const diasHabil = parseInt(document.getElementById("dias").value);
+    let fechaInput = document.getElementById("fecha").value;
+    let diasHabil = parseInt(document.getElementById("dias").value);
 
     // Validación
     if (!fechaInput || isNaN(diasHabil) || diasHabil < 1) {
@@ -8,17 +8,11 @@ function calcularDiaHabil() {
         return;
     }
 
-    const fecha = new Date(fechaInput);
+    let fecha = new Date(fechaInput);
 
     // Validación de fecha
     if (isNaN(fecha.getTime())) {
         mostrarResultado("Ingresa una fecha válida.");
-        return;
-    }
-
-    const fechaHoy = new Date();
-    if (fecha < fechaHoy) {
-        mostrarResultado("La fecha seleccionada no puede ser anterior a la fecha actual.");
         return;
     }
 
@@ -27,7 +21,7 @@ function calcularDiaHabil() {
     let diasContados = 0;
     let fechaHabil = new Date(fecha);
 
-    // Comenzar a contar desde el *siguiente* día
+    // Comenzamos a contar desde el siguiente día (incrementando 1 día)
     fechaHabil.setDate(fechaHabil.getDate() + 1);
 
     while (diasContados < diasHabil) {
@@ -36,7 +30,7 @@ function calcularDiaHabil() {
             feriados = obtenerFeriados(anioActual);
         }
 
-        // Si no es fin de semana ni feriado, contamos el día
+        // Si el día no es ni fin de semana ni feriado, contamos el día
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
         }
