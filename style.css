@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F9E4D4;
+    background-color: #F0EFE9;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,11 +12,13 @@ body {
 }
 
 /* Título fuera del recuadro */
-h1, h2 {
-    font-size: 2.5rem;
+h1 {
+    font-size: 1.8rem; /* Reducido para un tamaño más pequeño */
     color: #D45D6D;
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 /* Contenedor principal */
@@ -26,8 +28,16 @@ h1, h2 {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Título dentro del contenedor */
+h2 {
+    font-size: 1.8rem;
+    color: #F38D72;
+    margin-bottom: 20px;
 }
 
 /* Estilo de los inputs y botones */
@@ -48,6 +58,7 @@ button {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 button:hover {
@@ -63,9 +74,11 @@ p {
 
 /* Estilo del pie de página */
 footer {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
     font-size: 0.9rem;
     color: #4E4B3C;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    text-align: right;
+    font-style: italic;
 }
