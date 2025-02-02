@@ -12,13 +12,26 @@ body {
 }
 
 /* Título fuera del recuadro */
-h1 {
-    font-size: 1.8rem; /* Reducido para un tamaño más pequeño */
+.title {
+    text-align: center;
+    font-size: 1.8rem;
     color: #D45D6D;
     margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    letter-spacing: 1px;
+}
+
+.main-title {
+    display: block;
+    font-size: 2rem;
+    background-color: #FFFAF3;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sub-title {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
 /* Contenedor principal */
@@ -30,13 +43,6 @@ h1 {
     width: 100%;
     max-width: 600px;
     text-align: left;
-    margin-bottom: 20px;
-}
-
-/* Título dentro del contenedor */
-h2 {
-    font-size: 1.8rem;
-    color: #F38D72;
     margin-bottom: 20px;
 }
 
