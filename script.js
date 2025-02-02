@@ -5,16 +5,22 @@ const feriados = [
     '2025-08-25', '2025-10-12', '2025-11-02', '2025-12-25'
 ];
 
-// Función para comprobar si es fin de semana o feriado
+// Función para verificar si una fecha es feriado o fin de semana
 function esFeriadoOFinDeSemana(fecha) {
-    const dia = fecha.getDay(); // 0: domingo, 6: sábado
-    const fechaStr = fecha.toISOString().split('T')[0]; // Fecha en formato YYYY-MM-DD
-
-    // Verificamos si es sábado, domingo o un feriado
+    const dia = fecha.getDay(); // 0 = domingo, 6 = sábado
+    const fechaStr = fecha.toISOString().split('T')[0]; // Formato YYYY-MM-DD
     return dia === 0 || dia === 6 || feriados.includes(fechaStr);
 }
 
-// Función para calcular los días hábiles
+// Función para obtener el siguiente día hábil
+function obtenerSiguienteDiaHabil(fecha) {
+    do {
+        fecha.setDate(fecha.getDate() + 1); // Avanza al siguiente día
+    } while (esFeriadoOFinDeSemana(fecha)); // Si es feriado o fin de semana, sigue avanzando
+    return fecha;
+}
+
+// Función principal para calcular el día hábil solicitado
 function calcularDiaHabil() {
     const fechaSeleccionada = document.getElementById('fecha').value;
     const diasHabil = parseInt(document.getElementById('dias').value);
@@ -24,31 +30,20 @@ function calcularDiaHabil() {
         return;
     }
 
-    let fecha = new Date(fechaSeleccionada); // Convertimos la fecha seleccionada a objeto Date
-    let diasContados = 0;
+    let fecha = new Date(fechaSeleccionada);
 
-    // Si la fecha seleccionada es viernes, sábado o domingo, avanzamos al lunes y verificamos si es feriado
-    if (fecha.getDay() === 6) { // Sábado
-        fecha.setDate(fecha.getDate() + 2); // Avanzamos al lunes
-    } else if (fecha.getDay() === 0) { // Domingo
-        fecha.setDate(fecha.getDate() + 1); // Avanzamos al lunes
-    } else if (fecha.getDay() === 5) { // Viernes
-        fecha.setDate(fecha.getDate() + 3); // Avanzamos al lunes
+    // Si la fecha seleccionada es viernes, sábado o domingo, el primer día hábil será el lunes siguiente
+    if (fecha.getDay() === 5 || fecha.getDay() === 6 || fecha.getDay() === 0) {
+        fecha = obtenerSiguienteDiaHabil(new Date(fecha.setDate(fecha.getDate() + (8 - fecha.getDay()) % 7)));
+    } else {
+        // Si es un día hábil normal (lunes a jueves), avanzamos directamente al siguiente día hábil
+        fecha = obtenerSiguienteDiaHabil(new Date(fecha.setDate(fecha.getDate() + 1)));
     }
 
-    // Verificamos si el lunes es feriado, si es así, avanzamos al siguiente día hábil
-    while (esFeriadoOFinDeSemana(fecha)) {
-        fecha.setDate(fecha.getDate() + 1); // Avanzamos un día
+    // Contamos los días hábiles hasta llegar al número deseado
+    for (let i = 1; i < diasHabil; i++) {
+        fecha = obtenerSiguienteDiaHabil(fecha);
     }
 
-    // Ahora contamos los días hábiles, excluyendo fines de semana y feriados
-    while (diasContados < diasHabil) {
-        fecha.setDate(fecha.getDate() + 1); // Aumentamos un día
-        if (!esFeriadoOFinDeSemana(fecha)) {
-            diasContados++;
-        }
-    }
-
-    const fechaResultado = fecha.toISOString().split('T')[0]; // Obtenemos la fecha en formato YYYY-MM-DD
-    document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fechaResultado}`;
+    document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fecha.toISOString().split('T')[0]}`;
 }
