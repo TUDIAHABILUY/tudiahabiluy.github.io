@@ -13,16 +13,17 @@ function calcularDiaHabil() {
 
     let feriados = obtenerFeriados(fecha.getFullYear());
     let diasContados = 0;
+    let fechaHabil = new Date(fecha); // Copia la fecha inicial
 
     while (diasContados < diasHabil) {
-        fecha.setDate(fecha.getDate() + 1);
-        if (!esFeriadoOFinDeSemana(fecha, feriados)) {
+        fechaHabil.setDate(fechaHabil.getDate() + 1);
+        if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
         }
     }
 
     mostrarResultado(
-        `✅️ Día hábil: ${fecha.toLocaleDateString("es-UY")}`,
+        `✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`,
         `☑️ Día corrido: ${fechaCorrido.toLocaleDateString("es-UY")}`
     );
 }
@@ -49,22 +50,24 @@ function obtenerFeriados(year) {
 
 // Función para obtener Carnaval (lunes y martes 48 y 47 días antes de Pascua)
 function obtenerCarnavalLunes(year) {
-    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
-    pascua.setDate(pascua.getDate() - 48);
-    return pascua.toISOString().split('T')[0];
+    return calcularFechaRelativaPascua(year, -48);
 }
 
 function obtenerCarnavalMartes(year) {
-    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
-    pascua.setDate(pascua.getDate() - 47);
-    return pascua.toISOString().split('T')[0];
+    return calcularFechaRelativaPascua(year, -47);
 }
 
 // Función para obtener Jueves y Viernes Santo (días antes de Pascua)
 function obtenerSemanaSanta(year, diasAntes) {
-    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
-    pascua.setDate(pascua.getDate() + diasAntes);
-    return pascua.toISOString().split('T')[0];
+    return calcularFechaRelativaPascua(year, diasAntes);
+}
+
+// Función auxiliar para calcular fechas relativas a Pascua sin modificar el objeto Date original
+function calcularFechaRelativaPascua(year, diasAntes) {
+    let pascua = obtenerPascua(year);
+    let fechaRelativa = new Date(pascua); // Crear una copia de la fecha de Pascua
+    fechaRelativa.setDate(fechaRelativa.getDate() + diasAntes);
+    return fechaRelativa.toISOString().split('T')[0];
 }
 
 // Algoritmo de Meeus para calcular la fecha de Pascua
