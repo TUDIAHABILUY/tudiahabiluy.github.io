@@ -1,88 +1,45 @@
-/* Resetear márgenes y bordes predeterminados */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Lista de feriados en Uruguay
+const feriados = new Set([
+    '2025-01-01', '2025-01-06', '2025-03-01', '2025-03-02', '2025-03-03', '2025-03-04', 
+    '2025-04-14', '2025-04-15', '2025-04-16', '2025-04-17', '2025-04-18', '2025-04-19', '2025-04-20', 
+    '2025-05-01', '2025-05-18', '2025-06-19', '2025-07-18', '2025-08-25', '2025-10-12', 
+    '2025-11-02', '2025-12-25'
+]);
+
+// Función para verificar si una fecha es feriado o fin de semana
+function esFeriadoOFinDeSemana(fecha) {
+    const dia = fecha.getDay(); // 0 = domingo, 6 = sábado
+    const fechaStr = fecha.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+    return dia === 0 || dia === 6 || feriados.has(fechaStr);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+// Función para obtener el siguiente día hábil después de una fecha dada
+function obtenerSiguienteDiaHabil(fecha) {
+    fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
+    while (esFeriadoOFinDeSemana(fecha)) {
+        fecha.setDate(fecha.getDate() + 1); // Saltar feriados y fines de semana
+    }
+    do {
+        fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
+    } while (esFeriadoOFinDeSemana(fecha)); // Saltar feriados y fines de semana
+    return fecha;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+@@ -35,13 +34,15 @@
+    let fecha = new Date(fechaSeleccionada);
+    let contador = 0;
 
-h1 {
-    font-size: 2rem;
-    color: #004d40;
-    margin-bottom: 10px;
-}
+    // Avanzar un día para que el bucle maneje el primer día correctamente
+    fecha.setDate(fecha.getDate() + 1);
+    // Si la fecha inicial es un feriado o fin de semana, saltar al primer día hábil
+    if (esFeriadoOFinDeSemana(fecha)) {
+        fecha = obtenerSiguienteDiaHabil(fecha);
+    }
 
-h2 {
-    font-size: 1.5rem;
-    color: #00796b;
-    margin-bottom: 20px;
-    text-align: center;
-}
+    while (contador < diasHabil) {
+        fecha = obtenerSiguienteDiaHabil(fecha);
+        contador++;
+    }
 
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-fieldset {
-    border: 1px solid #00796b;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #e0f2f1;
-}
-
-legend {
-    font-weight: bold;
-    color: #004d40;
-}
-
-label {
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 10px;
-    color: #004d40;
-}
-
-input[type="date"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #00796b;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #00796b;
-    color: white;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-
-#resultado {
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #004d40;
-    text-align: center;
+    document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fecha.toISOString().split('T')[0]}`;
 }
