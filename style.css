@@ -1,10 +1,11 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F4E1D2;  /* Color cálido suave */
+    background-color: #F9E4D4;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -12,57 +13,59 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: #FFF1E6;  /* Fondo suave para el contenedor */
-    padding: 30px;
+    background-color: #FFF1E6;
+    padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    text-align: center;
 }
 
 /* Título */
 h1 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #D45D6D;  /* Tono cálido para el texto */
-    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #D45D6D;
+    display: inline;
+    margin-right: 10px;
 }
 
-/* Estilos de los inputs y botones */
+/* Estilo de los inputs y botones */
 input[type="date"], input[type="number"], button {
     width: 100%;
     padding: 12px;
-    margin: 8px 0;
+    margin: 10px 0;
     border-radius: 8px;
-    border: 1px solid #E2B9A3;  /* Tono cálido para bordes */
+    border: 1px solid #E2B9A3;
     font-size: 1rem;
-    background-color: #FFFAF3;  /* Color cálido para los campos */
-}
-
-/* Enfoque de los inputs */
-input:focus, button:focus {
-    outline: none;
-    border-color: #D45D6D;  /* Cambio al color cálido en el enfoque */
+    background-color: #FFFAF3;
 }
 
 /* Estilo del botón */
 button {
-    background-color: #F9C7B1;  /* Color cálido para el botón */
+    background-color: #F9C7B1;
     color: #4E4B3C;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-/* Hover en el botón */
 button:hover {
-    background-color: #E29F86;  /* Tono más fuerte en el hover */
+    background-color: #E29F86;
 }
 
 /* Resultados */
 p {
     color: #4E4B3C;
-    text-align: center;
     font-size: 1rem;
     margin-top: 20px;
+}
+
+/* Estilo del pie de página */
+footer {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    color: #4E4B3C;
 }
