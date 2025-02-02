@@ -13,22 +13,24 @@ function calcularDiaHabil() {
     let diasContados = 0;
     let fechaHabil = new Date(fecha);
 
-    // Evitar que el primer día ingresado sea contado
-    if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
-        diasContados++;
-    }
+    // Comenzar a contar a partir del siguiente día
+    fechaHabil.setDate(fechaHabil.getDate() + 1);
 
     while (diasContados < diasHabil) {
-        fechaHabil.setDate(fechaHabil.getDate() + 1);
-        
         // Si cambia de año, recalcular los feriados
         if (fechaHabil.getFullYear() !== añoActual) {
             añoActual = fechaHabil.getFullYear();
             feriados = obtenerFeriados(añoActual);
         }
 
+        // Si el día no es fin de semana ni feriado, contar
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
+        }
+
+        // Avanzar al siguiente día
+        if (diasContados < diasHabil) {
+            fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
     }
 
