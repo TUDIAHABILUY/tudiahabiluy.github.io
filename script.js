@@ -69,6 +69,6 @@ function calcularDiaHabil() {
         }
     }
 
-    document.getElementById("resultado").innerText = `📅 Día hábil: ${fecha.toLocaleDateString("es-UY")}`;
-    document.getElementById("resultado_corrido").innerText = `📅 Día corrido: ${fechaCorrido.toLocaleDateString("es-UY")}`;
+    document.getElementById("resultado").innerText = `✅️ Día hábil: ${fecha.toLocaleDateString("es-UY")}`;
+    document.getElementById("resultado_corrido").innerText = `☑️ Día corrido: ${fechaCorrido.toLocaleDateString("es-UY")}`;
 }
