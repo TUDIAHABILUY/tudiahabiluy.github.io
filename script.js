@@ -38,7 +38,8 @@ function calcularDiaHabil() {
 
 // Función para verificar si un día es feriado o fin de semana
 function esFeriadoOFinDeSemana(fecha, feriados) {
-    return feriados.includes(fecha.toISOString().split('T')[0]) || fecha.getDay() === 0 || fecha.getDay() === 6;
+    let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
+    return feriados.includes(fechaString) || fecha.getDay() === 0 || fecha.getDay() === 6;
 }
 
 // Función para obtener feriados del año
@@ -75,7 +76,7 @@ function calcularFechaRelativaPascua(year, diasAntes) {
     let pascua = obtenerPascua(year);
     let fechaRelativa = new Date(pascua);
     fechaRelativa.setDate(fechaRelativa.getDate() + diasAntes);
-    return fechaRelativa.toISOString().split('T')[0];
+    return fechaRelativa.getFullYear() + '-' + (fechaRelativa.getMonth() + 1).toString().padStart(2, '0') + '-' + fechaRelativa.getDate().toString().padStart(2, '0');
 }
 
 // Algoritmo de Meeus para calcular la fecha de Pascua
