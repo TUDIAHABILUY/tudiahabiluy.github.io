@@ -19,14 +19,15 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
-    text-align: left; /* Alinea todo al lado izquierdo */
+    text-align: left;
+    margin-bottom: 40px; /* Separar la sección de la dedicatoria */
 }
 
 /* Título */
 h1 {
     font-size: 2rem;
     color: #D45D6D;
-    display: inline; /* Asegura que el título esté en una sola línea */
+    display: inline;
     margin-right: 10px;
 }
 
