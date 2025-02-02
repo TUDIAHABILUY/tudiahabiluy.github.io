@@ -22,6 +22,7 @@ function obtenerSiguienteDiaHabil(fecha) {
     return nuevaFecha;
 }
 
+// Función para calcular el día hábil
 function calcularDiaHabil() {
     let fechaSeleccionada = document.getElementById('fecha').value;
     let diasHabil = parseInt(document.getElementById('dias').value, 10);
@@ -32,10 +33,22 @@ function calcularDiaHabil() {
     }
 
     let fecha = new Date(fechaSeleccionada);
-    let contador = 0;
+    
+    // Paso 1: Ajuste inicial según el día seleccionado
+    let diaSeleccionado = fecha.getDay(); // 0 = domingo, 1 = lunes, ..., 6 = sábado
 
+    if (diaSeleccionado === 5 || diaSeleccionado === 6) { // Si es viernes o sábado
+        // Si es viernes o sábado, comenzar el lunes siguiente
+        fecha.setDate(fecha.getDate() + (8 - diaSeleccionado)); // Ajusta al lunes siguiente
+    } else {
+        // Si es domingo o cualquier otro día, avanzar al siguiente día
+        fecha.setDate(fecha.getDate() + 1);
+    }
+
+    // Paso 2: Contar los días hábiles
+    let contador = 0;
     while (contador < diasHabil) {
-        fecha = obtenerSiguienteDiaHabil(fecha);
+        fecha = obtenerSiguienteDiaHabil(fecha); // Avanzar al siguiente día hábil
         contador++;
     }
 
