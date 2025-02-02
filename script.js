@@ -7,20 +7,19 @@ function calcularDiaHabil() {
             añoActual = fechaHabil.getFullYear();
             feriados = obtenerFeriados(añoActual);
         }
-        // Si el día no es fin de semana ni feriado, contar
+
+        // Verificar si el día actual es hábil *antes* de avanzar la fecha
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
         }
 
-        // Avanzar al siguiente día (solo una vez por iteración)
+        // Avanzar al siguiente día *después* de haber contado el día hábil (si corresponde)
         fechaHabil.setDate(fechaHabil.getDate() + 1);
+
     }
 
     mostrarResultado(`✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`);
 }
-
-// ... (resto del código sin cambios)
-
 // Función para verificar si un día es feriado o fin de semana
 function esFeriadoOFinDeSemana(fecha, feriados) {
     let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
