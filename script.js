@@ -18,9 +18,6 @@ Function calcularDiaHabil() {
 
     mostrarResultado(`✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`);
 }
-
-// ... (resto del código sin cambios)
-
 // Función para verificar si un día es feriado o fin de semana
 function esFeriadoOFinDeSemana(fecha, feriados) {
     let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
