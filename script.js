@@ -36,10 +36,12 @@ function calcularDiaHabil() {
             feriados = obtenerFeriados(anioActual);
         }
 
+        // Si no es fin de semana ni feriado, contamos el día
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
         }
 
+        // Si no hemos contado suficientes días, seguimos avanzando
         if (diasContados < diasHabil) {
             fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
