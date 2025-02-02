@@ -18,15 +18,27 @@ function calcularDiaHabil() {
         if (diasContados < diasHabil) {
             fechaHabil.setDate(fechaHabil.getDate() + 1); // <-- La corrección: mover dentro del if
         }
+
+        console.log("diasContados: " + diasContados);
+        console.log("fechaHabil: " + fechaHabil.toLocaleDateString("es-UY"));
     }
+
+    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
+}
 
     mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
 }
 
 
 function esFeriadoOFinDeSemana(fecha, feriados) {
-  let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
-  return feriados.includes(fechaString) || fecha.getDay() === 0 || fecha.getDay() === 6;
+    let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
+    let esFeriado = feriados.some(feriado => {
+        let feriadoDate = new Date(feriado);
+        return feriadoDate.getFullYear() === fecha.getFullYear() &&
+               feriadoDate.getMonth() === fecha.getMonth() &&
+               feriadoDate.getDate() === fecha.getDate();
+    });
+    return esFeriado || fecha.getDay() === 0 || fecha.getDay() === 6;
 }
 
 function obtenerFeriados(year) {
