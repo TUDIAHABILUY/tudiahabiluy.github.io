@@ -33,7 +33,7 @@ function calcularDiaHabil() {
             fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
 
-        // Si la fecha es el último día del mes o año, hacer que avance al siguiente mes o año
+        // Ajuste para asegurarse de que al cambiar de mes o año, avance correctamente
         if (fechaHabil.getDate() === 1 && fechaHabil.getMonth() === 0) {
             fechaHabil.setFullYear(fechaHabil.getFullYear() + 1);
         }
