@@ -13,6 +13,11 @@ function calcularDiaHabil() {
     let diasContados = 0;
     let fechaHabil = new Date(fecha);
 
+    // Evitar que el primer día ingresado sea contado
+    if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
+        diasContados++;
+    }
+
     while (diasContados < diasHabil) {
         fechaHabil.setDate(fechaHabil.getDate() + 1);
         
