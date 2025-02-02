@@ -33,18 +33,24 @@ function calcularDiaHabil() {
 
     let fecha = new Date(fechaSeleccionada);
 
-    // **PASO 1:** Ajustar la fecha inicial
-    if (esFeriadoOFinDeSemana(fecha)) {
-        fecha = obtenerSiguienteDiaHabil(fecha);
-    } else {
+    // **PASO 1:** Ajustar la fecha inicial según el día de la semana
+    const diaSemana = fecha.getDay(); // 0 = domingo, 1 = lunes, ..., 6 = sábado
+
+    if (diaSemana === 5) { // Si es viernes, saltar a lunes
+        fecha.setDate(fecha.getDate() + 3);
+    } else if (diaSemana === 6) { // Si es sábado, saltar a lunes
+        fecha.setDate(fecha.getDate() + 2);
+    } else if (diaSemana === 0) { // Si es domingo, saltar a lunes
         fecha.setDate(fecha.getDate() + 1);
-        if (esFeriadoOFinDeSemana(fecha)) {
-            fecha = obtenerSiguienteDiaHabil(fecha);
-        }
     }
 
-    // **PASO 2:** Contar los días hábiles
-    for (let i = 1; i < diasHabil; i++) {
+    // Si el lunes es feriado, obtener el próximo día hábil
+    if (feriados.has(fecha.toISOString().split('T')[0])) {
+        fecha = obtenerSiguienteDiaHabil(fecha);
+    }
+
+    // **PASO 2:** Contar días hábiles después del ajuste inicial
+    for (let i = 0; i < diasHabil; i++) { // Comienza en 0 para contar correctamente
         fecha = obtenerSiguienteDiaHabil(fecha);
     }
 
