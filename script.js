@@ -11,12 +11,20 @@ function calcularDiaHabil() {
     let fechaCorrido = new Date(fecha);
     fechaCorrido.setDate(fechaCorrido.getDate() + diasHabil);
 
-    let feriados = obtenerFeriados(fecha.getFullYear());
+    let añoActual = fecha.getFullYear();
+    let feriados = obtenerFeriados(añoActual);
     let diasContados = 0;
-    let fechaHabil = new Date(fecha); // Copia la fecha inicial
+    let fechaHabil = new Date(fecha);
 
     while (diasContados < diasHabil) {
         fechaHabil.setDate(fechaHabil.getDate() + 1);
+        
+        // Si cambia de año, recalcular los feriados
+        if (fechaHabil.getFullYear() !== añoActual) {
+            añoActual = fechaHabil.getFullYear();
+            feriados = obtenerFeriados(añoActual);
+        }
+
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
         }
@@ -65,7 +73,7 @@ function obtenerSemanaSanta(year, diasAntes) {
 // Función auxiliar para calcular fechas relativas a Pascua sin modificar el objeto Date original
 function calcularFechaRelativaPascua(year, diasAntes) {
     let pascua = obtenerPascua(year);
-    let fechaRelativa = new Date(pascua); // Crear una copia de la fecha de Pascua
+    let fechaRelativa = new Date(pascua);
     fechaRelativa.setDate(fechaRelativa.getDate() + diasAntes);
     return fechaRelativa.toISOString().split('T')[0];
 }
