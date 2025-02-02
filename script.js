@@ -33,15 +33,6 @@ function calcularDiaHabil() {
         if (diasContados < diasHabil) {
             fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
-
-        // Verificar si hemos pasado al siguiente mes o año
-        if (fechaHabil.getDate() === 1) {
-            let mesAnterior = fechaHabil.getMonth();
-            fechaHabil.setMonth(mesAnterior + 1);
-            if (fechaHabil.getMonth() === 0) {
-                fechaHabil.setFullYear(fechaHabil.getFullYear() + 1);
-            }
-        }
     }
 
     mostrarResultado(`✅️ Día hábil: ${fechaHabil.toLocaleDateString("es-UY")}`);
