@@ -35,13 +35,16 @@ function calcularDiaHabil() {
     let contador = 0;
 
     // Si la fecha inicial es un feriado o fin de semana, saltar al primer día hábil
-    if (esFeriadoOFinDeSemana(fecha)) {
+    while (esFeriadoOFinDeSemana(fecha)) {
         fecha = obtenerSiguienteDiaHabil(fecha);
     }
 
+    // Contar los días hábiles
     while (contador < diasHabil) {
+        if (!esFeriadoOFinDeSemana(fecha)) {
+            contador++;
+        }
         fecha = obtenerSiguienteDiaHabil(fecha);
-        contador++;
     }
 
     document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fecha.toISOString().split('T')[0]}`;
