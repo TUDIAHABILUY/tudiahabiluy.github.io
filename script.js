@@ -23,11 +23,10 @@ function calcularDiaHabil() {
         console.log("fechaHabil: " + fechaHabil.toLocaleDateString("es-UY"));
     }
 
-    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
+    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY")); // <-- Mostrar el resultado *después* del bucle
 }
 
-    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
-}
+// ... (resto del código sin cambios)
 
 
 function esFeriadoOFinDeSemana(fecha, feriados) {
