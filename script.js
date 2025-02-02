@@ -15,10 +15,11 @@ function esFeriadoOFinDeSemana(fecha) {
 
 // Función para obtener el siguiente día hábil después de una fecha dada
 function obtenerSiguienteDiaHabil(fecha) {
+    let nuevaFecha = new Date(fecha); // Crear una copia de la fecha
     do {
-        fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
-    } while (esFeriadoOFinDeSemana(fecha)); // Saltar feriados y fines de semana
-    return fecha;
+        nuevaFecha.setDate(nuevaFecha.getDate() + 1); // Avanzar al siguiente día
+    } while (esFeriadoOFinDeSemana(nuevaFecha)); // Saltar feriados y fines de semana
+    return nuevaFecha;
 }
 
 function calcularDiaHabil() {
