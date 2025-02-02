@@ -46,10 +46,10 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: none;  /* Eliminar borde */
     width: 100%;
     max-width: 500px;
     text-align: left;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Labels */
@@ -67,16 +67,15 @@ input[type="number"] {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
-    border: none;  /* Eliminar borde */
+    border: none;
     font-size: 1rem;
     background-color: #F9F9F9;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 input:focus {
-    border-color: initial;  /* Restablece el borde */
-    outline: none;          /* Elimina el contorno */
-    box-shadow: none;       /* Elimina la sombra */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Botón */
@@ -91,11 +90,12 @@ button {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.3s ease;
 }
 
 button:hover {
     background-color: #C04E5E;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
@@ -131,5 +131,10 @@ footer {
 
     input, button {
         font-size: 0.9rem;
+    }
+
+    button {
+        padding: 15px;
+        background-color: #C04E5E;
     }
 }
