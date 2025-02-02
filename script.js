@@ -48,7 +48,7 @@ function esFeriadoOFinDeSemana(fecha, feriados) {
     return feriados.includes(fechaString) || fecha.getDay() === 0 || fecha.getDay() === 6;
 }
 
-// Función para obtener feriados de Uruguay
+// Función para obtener los feriados de Uruguay
 function obtenerFeriados(year) {
     return [
         `${year}-01-01`, // Año Nuevo
@@ -56,28 +56,29 @@ function obtenerFeriados(year) {
         `${year}-07-18`, // Jura de la Constitución
         `${year}-08-25`, // Declaratoria de la Independencia
         `${year}-12-25`, // Navidad
-        obtenerCarnavalLunes(year), 
-        obtenerCarnavalMartes(year),
+        obtenerCarnavalLunes(year), // Lunes de Carnaval
+        obtenerCarnavalMartes(year), // Martes de Carnaval
         obtenerSemanaSanta(year, -3), // Jueves Santo
         obtenerSemanaSanta(year, -2)  // Viernes Santo
     ];
 }
 
-// Función para obtener Carnaval (lunes y martes 48 y 47 días antes de Pascua)
+// Función para obtener el lunes de Carnaval
 function obtenerCarnavalLunes(year) {
-    return calcularFechaRelativaPascua(year, -48);
+    return calcularFechaRelativaPascua(year, -48); // 48 días antes de Pascua
 }
 
+// Función para obtener el martes de Carnaval
 function obtenerCarnavalMartes(year) {
-    return calcularFechaRelativaPascua(year, -47);
+    return calcularFechaRelativaPascua(year, -47); // 47 días antes de Pascua
 }
 
-// Función para obtener Jueves y Viernes Santo (días antes de Pascua)
+// Función para obtener Jueves y Viernes Santo
 function obtenerSemanaSanta(year, diasAntes) {
     return calcularFechaRelativaPascua(year, diasAntes);
 }
 
-// Función auxiliar para calcular fechas relativas a Pascua sin modificar el objeto Date original
+// Función auxiliar para calcular fechas relativas a Pascua
 function calcularFechaRelativaPascua(year, diasAntes) {
     let pascua = obtenerPascua(year);
     let fechaRelativa = new Date(pascua);
@@ -85,7 +86,7 @@ function calcularFechaRelativaPascua(year, diasAntes) {
     return fechaRelativa.getFullYear() + '-' + (fechaRelativa.getMonth() + 1).toString().padStart(2, '0') + '-' + fechaRelativa.getDate().toString().padStart(2, '0');
 }
 
-// Algoritmo de Meeus para calcular la fecha de Pascua
+// Algoritmo para calcular la fecha de Pascua
 function obtenerPascua(year) {
     let a = year % 19, b = Math.floor(year / 100), c = year % 100;
     let d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
