@@ -15,26 +15,23 @@ function esFeriadoOFinDeSemana(fecha) {
 
 // Función para obtener el siguiente día hábil después de una fecha dada
 function obtenerSiguienteDiaHabil(fecha) {
-    fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
-    while (esFeriadoOFinDeSemana(fecha)) {
-        fecha.setDate(fecha.getDate() + 1); // Saltar feriados y fines de semana
-    }
     do {
         fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
     } while (esFeriadoOFinDeSemana(fecha)); // Saltar feriados y fines de semana
     return fecha;
 }
 
-@@ -35,13 +34,15 @@
+function calcularDiaHabil() {
+    let fechaSeleccionada = document.getElementById('fecha').value;
+    let diasHabil = parseInt(document.getElementById('dias').value, 10);
+
+    if (!fechaSeleccionada || isNaN(diasHabil) || diasHabil <= 0) {
+        alert('Por favor, ingresa una fecha válida y un número de días hábiles mayor a 0.');
+        return;
+    }
+
     let fecha = new Date(fechaSeleccionada);
     let contador = 0;
-
-    // Avanzar un día para que el bucle maneje el primer día correctamente
-    fecha.setDate(fecha.getDate() + 1);
-    // Si la fecha inicial es un feriado o fin de semana, saltar al primer día hábil
-    if (esFeriadoOFinDeSemana(fecha)) {
-        fecha = obtenerSiguienteDiaHabil(fecha);
-    }
 
     while (contador < diasHabil) {
         fecha = obtenerSiguienteDiaHabil(fecha);
