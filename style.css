@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     padding: 20px;
@@ -43,6 +43,11 @@ h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 fieldset {
@@ -72,6 +77,14 @@ input[type="number"] {
     border: 1px solid #00796b;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: #004d40;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 77, 64, 0.3);
 }
 
 button {
