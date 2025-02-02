@@ -1,123 +1,118 @@
 function calcularDiaHabil() {
+  let fechaInput = document.getElementById("fecha").value;
+  let diasHabil = parseInt(document.getElementById("dias").value);
 
-let fechaInput document.getElementById("fecha").value;
+  // Validar entrada
+  if (!fechaInput || isNaN(diasHabil) || diasHabil < 1) { // Corregido: diasHabil debe ser >= 1
+    mostrarResultado("Ingresa una fecha y una cantidad de días hábiles válida (mínimo 1 día).");
+    return;
+  }
 
-let diasHabil parseInt(document.getElementById("dias").value);
+  let fecha = new Date(fechaInput);
 
-// Validar que los dias hábiles sean al menos 10
+  // Validar que la fecha sea válida
+  if (isNaN(fecha.getTime())) {
+      mostrarResultado("Ingresa una fecha válida.");
+      return;
+  }
 
-if (IfechaInput || isNaN(diasHabil ) || diasHabil < 10) {
 
-mostrarResultado("A Ingresa una cantidad de días hábiles válida (minimo
+  let anioActual = fecha.getFullYear();
+  let feriados = obtenerFeriados(anioActual);
+  let diasContados = 0;
+  let fechaHabil = new Date(fecha);
 
-10 días).");
+  // Comenzar a contar a partir del siguiente día
+  fechaHabil.setDate(fechaHabil.getDate() + 1);
 
-return;
+  while (diasContados < diasHabil) {
+    // Si cambia de año, recalcular los feriados
+    if (fechaHabil.getFullYear() !== anioActual) {
+      anioActual = fechaHabil.getFullYear();
+      feriados = obtenerFeriados(anioActual);
+    }
 
+    // Mostrar la fecha para depuración (opcional)
+    console.log('Evaluando: ' + fechaHabil.toLocaleDateString("es-UY"));
+
+    // Si el día no es fin de semana ni feriado, contar
+    if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) { // Corregido: se invierte la condición
+      diasContados++;
+      console.log("Contando día: " + fechaHabil.toLocaleDateString("es-UY"));
+    }
+
+    fechaHabil.setDate(fechaHabil.getDate() + 1);
+  }
+
+  mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
 }
 
-let fecha new Date(fecha Input);
-
-let añoActual fecha.getFullYear();
-
-let feriados obtener Feriados (añoActual);
-
-0: let diasContados
-
-let fechaHabil new Date(fecha);
-
-// Comenzar a contar a partir del siguiente dia
-
-fechaHabil.setDate(fechaHabil.getDate()+ 1); // Avanzamos al siguiente dia
-
-while (diasContados diasHabil) {
-
-// Si cambia de año, recalcular los feriados
-
-if (fechaHabil.getFullYear() != añoActual) {
-
-añoActual fechaHabil.getFullYear();
-
-feriados obtener Feriados (añoActual);
-
+function esFeriadoOFinDeSemana(fecha, feriados) {
+  let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
+  return feriados.includes(fechaString) || fecha.getDay() === 0 || fecha.getDay() === 6;
 }
 
-// Mostrar la fecha para depuración
+function obtenerFeriados(year) {
+  // Feriados fijos
+  let feriados = [
+    `${year}-01-01`, // Año Nuevo
+    `${year}-05-01`, // Día de los Trabajadores
+    `${year}-07-18`, // Jura de la Constitución
+    `${year}-08-25`, // Declaratoria de la Independencia
+    `${year}-12-25`  // Navidad
+  ];
 
-console.log(Evaluando: ${fechaHabil.toLocaleDateString("es-UY")}');
+  // Feriados moviles (Carnaval y Semana Santa)
+    feriados.push(obtenerCarnaval(year));
+    let semanaSanta = obtenerSemanaSanta(year);
+    feriados.push(semanaSanta[0]); //Jueves Santo
+    feriados.push(semanaSanta[1]); //Viernes Santo
 
-// Si el día no es fin de semana ni feriado, contar
-
-if (lesFeriadoOFinDeSemana (fechaHabil, feriados)) {
-
-diasContados++;
-
-console.log("Contando dia: ${fechaHabil.toLocaleDateString("es-
-
-UY")});
-
-// Mostrar dia contado
-
+  return feriados;
 }
 
-// Solo avanzar al siguiente día si no hemos contado el número de dias
-
-hábiles deseados
-
-if (diasContados diasHabil) {
-
+function obtenerCarnaval(year) {
+    let fechaPascua = calcularFechaPascua(year);
+    let fechaCarnaval = new Date(fechaPascua);
+    fechaCarnaval.setDate(fechaCarnaval.getDate() - 48); // 48 días antes del domingo de pascua
+    return formatDate(fechaCarnaval);
 }
 
+function obtenerSemanaSanta(year) {
+    let fechaPascua = calcularFechaPascua(year);
+    let juevesSanto = new Date(fechaPascua);
+    juevesSanto.setDate(juevesSanto.getDate() - 3);
+    let viernesSanto = new Date(fechaPascua);
+    viernesSanto.setDate(viernesSanto.getDate() - 2);
+    return [formatDate(juevesSanto), formatDate(viernesSanto)];
 }
 
+// Función para calcular la fecha de Pascua (Algoritmo de Meeus/Jones/Butcher)
+function calcularFechaPascua(year) {
+    let a = year % 19;
+    let b = Math.floor(year / 100);
+    let c = year % 100;
+    let d = Math.floor(b / 4);
+    let e = b % 4;
+    let f = Math.floor((b + 8) / 25);
+    let g = Math.floor((b - f + 1) / 3);
+    let h = (19 * a + b - d - g + 15) % 30;
+    let i = Math.floor(c / 4);
+    let j = c % 4;
+    let k = (32 + 2 * e + 2 * i - h - j) % 7;
+    let l = Math.floor((a + 11 * h + 22 * k) / 451);
+    let m = (h + k - 7 * l + 114) % 31;
+    let mes = Math.floor((h + k - 7 * l + 114) / 31);
+    let dia = m + 1;
+
+    return new Date(year, mes - 1, dia); // Meses en JavaScript empiezan desde 0
 }
 
-fechaHabil.setDate(fechaHabil.getDate()+ 1);
-
-mostrarResultado Día hábil: ${fechaHabil.toLocaleDateString("es-UY")));
-
-// Función para verificar si un día es feriado o fin de semana
-
-function esFeriadoOFinDeSemana (fecha, feriados) {
-
-let fechaString fecha.getFullYear()+'' (fecha.getMonth()
-
-'0'); 1).toString().padStart(2, '0') fecha.getDate().toString().padStart(2,
-
-return feriados.includes (fechaString) || fecha.getDay()011 fecha.getDay() === 6;
-
+function formatDate(date) {
+    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 }
 
-// Función para obtener feriados de Uruguay
 
-function obtener Feriados(year) {
-
-return [
-
-'$(year)-01-01, // Año Nuevo
-
-$(year)-05-01, // Dia de los Trabajadores
-
-"$(year)-07-18, // Jura de la Constitución
-
-$(year)-08-25, // Declaratoria de la Independencia
-
-$(year)-12-25 // Navidad
-
-obtener Carnavallunes(year),
-
-obtener CarnavalMartes (year),
-
-obtener SemanaSanta(year, -3), // Jueves Santo
-
-obtener Semana Santa(year, -2) // Viernes Santo
-
-1:
-
-// Función para obtener Carnaval (lunes y martes 48 y 47 días antes de Pascua)
-
-function obtener CarnavalLunes (year) {
-
+function mostrarResultado(mensaje) {
+  document.getElementById("resultado").textContent = mensaje;
 }
-
-return calcular FechaRelativaPascua(year, -48);
