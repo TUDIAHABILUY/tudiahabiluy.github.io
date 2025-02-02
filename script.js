@@ -1,31 +1,50 @@
 function calcularDiaHabil() {
-    // ... (código de validación de entrada sin cambios)
+    let fechaInput = document.getElementById("fecha").value;
+    let diasHabil = parseInt(document.getElementById("dias").value);
+
+    // Validación (sin cambios)
+    if (!fechaInput || isNaN(diasHabil) || diasHabil < 1) {
+        mostrarResultado("Ingresa una fecha y una cantidad de días hábiles válida (mínimo 1 día).");
+        return;
+    }
 
     let fecha = new Date(fechaInput);
 
-    // ... (código de inicialización de variables sin cambios)
+    // Validación de fecha
+    if (isNaN(fecha.getTime())) {
+        mostrarResultado("Ingresa una fecha válida.");
+        return;
+    }
+
+    let anioActual = fecha.getFullYear();
+    let feriados = obtenerFeriados(anioActual);
+    let diasContados = 0;
+    let fechaHabil = new Date(fecha);
+
+    // Comenzar a contar desde el *siguiente* día
+    fechaHabil.setDate(fechaHabil.getDate() + 1);
 
     while (diasContados < diasHabil) {
-        // ... (código para recalcular feriados si cambia el año sin cambios)
+        if (fechaHabil.getFullYear() !== anioActual) {
+            anioActual = fechaHabil.getFullYear();
+            feriados = obtenerFeriados(anioActual);
+        }
 
-        // Si el día no es fin de semana ni feriado, contar
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
             console.log("Contando día: " + fechaHabil.toLocaleDateString("es-UY"));
         }
 
-        // Avanzar al siguiente día *solo si no se ha alcanzado el número de días hábiles*
         if (diasContados < diasHabil) {
-            fechaHabil.setDate(fechaHabil.getDate() + 1); // <-- La corrección: mover dentro del if
+            fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
 
         console.log("diasContados: " + diasContados);
         console.log("fechaHabil: " + fechaHabil.toLocaleDateString("es-UY"));
     }
 
-    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY")); // <-- Mostrar el resultado *después* del bucle
+    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
 }
-
 
 function esFeriadoOFinDeSemana(fecha, feriados) {
     let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
