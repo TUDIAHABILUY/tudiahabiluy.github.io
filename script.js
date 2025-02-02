@@ -41,8 +41,8 @@ function calcularDiaHabil() {
     // Contar días hábiles correctamente
     let contador = 0;
     while (contador < diasHabil) {
-        fecha = obtenerSiguienteDiaHabil(fecha);
-        contador++;
+      fecha = obtenerSiguienteDiaHabil(fecha);
+      contador++;
     }
 
     document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fecha.toISOString().split('T')[0]}`;
