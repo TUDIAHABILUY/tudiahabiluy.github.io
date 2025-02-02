@@ -43,7 +43,12 @@ function calcularDiaHabil() {
         console.log("fechaHabil: " + fechaHabil.toLocaleDateString("es-UY"));
     }
 
+    // Mostrar el resultado
     mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
+}
+
+function mostrarResultado(mensaje) {
+  document.getElementById("resultado").textContent = mensaje;
 }
 
 function esFeriadoOFinDeSemana(fecha, feriados) {
