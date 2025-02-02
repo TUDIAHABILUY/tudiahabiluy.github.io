@@ -36,16 +36,16 @@ function calcularDiaHabil() {
     // Contamos los días corridos
     let contador = 0;
     let diasRestantes = diasHabil;
+
     while (diasRestantes > 0) {
         // Avanzamos al siguiente día
         fecha.setDate(fecha.getDate() + 1);
-        contador++;
 
         // Verificamos si es un día hábil
-        const dia = fecha.getDay();
-        const fechaStr = fecha.toISOString().split('T')[0];
+        const dia = fecha.getDay(); // 0 = domingo, 1 = lunes, ..., 6 = sábado
+        const fechaStr = fecha.toISOString().split('T')[0]; // Formato YYYY-MM-DD
 
-        // Si es sábado, domingo o feriado, restamos un día del contador
+        // Si el día no es sábado, domingo ni feriado, restamos un día del contador
         if (dia !== 0 && dia !== 6 && !feriados.has(fechaStr)) {
             diasRestantes--;
         }
