@@ -66,7 +66,7 @@ input[type="number"] {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
-    border: 1px solid #CCC;
+    border: none;  /* Eliminar el borde */
     font-size: 1rem;
     background-color: #F9F9F9;
     transition: all 0.2s ease-in-out;
