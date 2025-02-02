@@ -24,9 +24,13 @@ function calcularDiaHabil() {
             feriados = obtenerFeriados(añoActual);
         }
 
+        // Mostrar la fecha para depuración
+        console.log(`Evaluando: ${fechaHabil.toLocaleDateString("es-UY")}`);
+        
         // Si el día no es fin de semana ni feriado, contar
         if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
             diasContados++;
+            console.log(`Contando día: ${fechaHabil.toLocaleDateString("es-UY")}`);  // Mostrar día contado
         }
 
         // Solo avanzar al siguiente día si no hemos contado el número de días hábiles deseados
