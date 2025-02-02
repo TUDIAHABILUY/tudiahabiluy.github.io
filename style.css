@@ -73,7 +73,7 @@ input[type="number"] {
 }
 
 input:focus {
-    border-color: initial;  /* Restablece el borde */
+    border: none;  /* Restablece el borde */
     outline: none;          /* Elimina el contorno */
     box-shadow: none;       /* Elimina la sombra */
 }
