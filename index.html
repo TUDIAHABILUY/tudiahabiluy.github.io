@@ -79,9 +79,9 @@
         // Función para calcular los días hábiles
         function calcularDiaHabil() {
             const fechaSeleccionada = document.getElementById('fecha').value;
-            const diasHabil = parseInt(document.getElementById('dias').value);
+            const diasHabil = parseInt(document.getElementById('dias').value, 10); // Convertimos a entero
 
-            if (!fechaSeleccionada || isNaN(diasHabil)) {
+            if (!fechaSeleccionada || isNaN(diasHabil) || diasHabil <= 0) {
                 document.getElementById('resultado').textContent = 'Por favor, ingresa todos los datos correctamente.';
                 return;
             }
