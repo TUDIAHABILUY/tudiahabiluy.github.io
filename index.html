@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Calcula tu día hábil en Uruguay fácilmente con nuestra herramienta en línea.">
     <meta name="google-site-verification" content="LCGPDSlNvAWgG8nmTtlGldRpRumg4z9EgABCd0Uh0HY" />
-    <title>Calculadora de tu Día Hábil Uruguay</title>
+    <title>Tu Día Hábil Uruguay</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Código de Google AdSense -->
@@ -24,19 +24,20 @@
 
         <div class="container">
             <fieldset>
+                <legend>Ingresa los datos:</legend>
 
                 <label for="fecha">Selecciona una fecha:</label>
                 <input type="date" id="fecha">
 
                 <label for="dias">Cantidad de días hábiles:</label>
                 <input type="number" id="dias" min="1" placeholder="Ej: 5">
-
-                <button onclick="calcularDiaHabil()">Calcular</button>
             </fieldset>
-
-            <p id="resultado" aria-live="polite"></p>
-            <p id="resultado_corrido" aria-live="polite"></p>
         </div>
+
+        <button onclick="calcularDiaHabil()">Calcular</button>
+
+        <p id="resultado" aria-live="polite"></p>
+        <p id="resultado_corrido" aria-live="polite"></p>
     </main>
 
     <footer>
