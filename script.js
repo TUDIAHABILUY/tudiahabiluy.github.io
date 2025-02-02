@@ -26,8 +26,6 @@ function calcularDiaHabil() {
     mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY")); // <-- Mostrar el resultado *después* del bucle
 }
 
-// ... (resto del código sin cambios)
-
 
 function esFeriadoOFinDeSemana(fecha, feriados) {
     let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
