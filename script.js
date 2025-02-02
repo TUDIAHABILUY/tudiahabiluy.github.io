@@ -28,7 +28,7 @@ function calcularDiaHabil() {
             diasContados++;
         }
 
-        // Avanzar al siguiente día si no se ha contado el número de días requeridos
+        // Avanzar al siguiente día solo si no se ha contado el número de días requeridos
         if (diasContados < diasHabil) {
             fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
