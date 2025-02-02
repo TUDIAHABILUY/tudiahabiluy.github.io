@@ -4,11 +4,13 @@ function calcularDiaHabil() {
 
     if (!fechaInput || isNaN(diasHabil) || diasHabil <= 0) {
         document.getElementById("resultado").innerText = "⚠️ Ingresa una fecha y cantidad de días válidos.";
+        document.getElementById("resultado_corrido").innerText = "";
         return;
     }
 
     let fecha = new Date(fechaInput);
-    let diasContados = 0;
+    let fechaCorrido = new Date(fecha); // Copia la fecha para calcular el día corrido
+    fechaCorrido.setDate(fechaCorrido.getDate() + diasHabil); // Suma los días sin filtrar
 
     function calcularFeriados(year) {
         return [
@@ -17,22 +19,22 @@ function calcularDiaHabil() {
             `${year}-07-18`, // Jura de la Constitución
             `${year}-08-25`, // Declaratoria de la Independencia
             `${year}-12-25`, // Navidad
-            obtenerCarnaval(year), // Carnaval (variable)
-            obtenerSemanaSanta(year) // Turismo (Semana Santa)
+            obtenerCarnaval(year),
+            obtenerSemanaSanta(year)
         ];
     }
 
     function obtenerCarnaval(year) {
         let pascua = obtenerPascua(year);
         let carnaval = new Date(pascua);
-        carnaval.setDate(pascua.getDate() - 48); // Lunes de Carnaval
+        carnaval.setDate(pascua.getDate() - 48);
         return carnaval.toISOString().split('T')[0];
     }
 
     function obtenerSemanaSanta(year) {
         let pascua = obtenerPascua(year);
         let juevesTurismo = new Date(pascua);
-        juevesTurismo.setDate(pascua.getDate() - 3); // Jueves Santo
+        juevesTurismo.setDate(pascua.getDate() - 3);
         return juevesTurismo.toISOString().split('T')[0];
     }
 
@@ -55,10 +57,10 @@ function calcularDiaHabil() {
     }
 
     let feriadosUruguay = calcularFeriados(fecha.getFullYear());
+    let diasContados = 0;
 
     while (diasContados < diasHabil) {
         fecha.setDate(fecha.getDate() + 1);
-
         let esFeriado = feriadosUruguay.includes(fecha.toISOString().split('T')[0]);
         let esFinDeSemana = fecha.getDay() === 0 || fecha.getDay() === 6;
 
@@ -67,6 +69,6 @@ function calcularDiaHabil() {
         }
     }
 
-    let resultadoTexto = `📅 Día hábil: ${fecha.toLocaleDateString("es-UY")}`;
-    document.getElementById("resultado").innerText = resultadoTexto;
+    document.getElementById("resultado").innerText = `📅 Día hábil: ${fecha.toLocaleDateString("es-UY")}`;
+    document.getElementById("resultado_corrido").innerText = `📅 Día corrido: ${fechaCorrido.toLocaleDateString("es-UY")}`;
 }
