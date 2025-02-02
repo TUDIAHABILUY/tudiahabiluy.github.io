@@ -61,7 +61,8 @@ label {
 }
 
 /* Inputs */
-input[type="date"], input[type="number"] {
+input[type="date"],
+input[type="number"] {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
@@ -72,9 +73,9 @@ input[type="date"], input[type="number"] {
 }
 
 input:focus {
-    border-color: #D45D6D;
-    outline: none;
-    box-shadow: 0 0 5px rgba(212, 93, 109, 0.5);
+    border-color: initial;  /* Restablece el borde */
+    outline: none;          /* Elimina el contorno */
+    box-shadow: none;       /* Elimina la sombra */
 }
 
 /* Botón */
