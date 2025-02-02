@@ -49,20 +49,20 @@ function obtenerFeriados(year) {
 
 // Función para obtener Carnaval (lunes y martes 48 y 47 días antes de Pascua)
 function obtenerCarnavalLunes(year) {
-    let pascua = obtenerPascua(year);
+    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
     pascua.setDate(pascua.getDate() - 48);
     return pascua.toISOString().split('T')[0];
 }
 
 function obtenerCarnavalMartes(year) {
-    let pascua = obtenerPascua(year);
+    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
     pascua.setDate(pascua.getDate() - 47);
     return pascua.toISOString().split('T')[0];
 }
 
 // Función para obtener Jueves y Viernes Santo (días antes de Pascua)
 function obtenerSemanaSanta(year, diasAntes) {
-    let pascua = obtenerPascua(year);
+    let pascua = new Date(obtenerPascua(year)); // Copia la fecha
     pascua.setDate(pascua.getDate() + diasAntes);
     return pascua.toISOString().split('T')[0];
 }
