@@ -1,37 +1,61 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Calcula tu día hábil en Uruguay fácilmente con nuestra herramienta en línea.">
+
     <meta name="google-site-verification" content="LCGPDSlNvAWgG8nmTtlGldRpRumg4z9EgABCd0Uh0HY" />
+
     <title>Tu Día Hábil Uruguay</title>
+
     <link rel="stylesheet" href="style.css">
 
     <!-- Código de Google AdSense -->
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775600074630483"
+
             crossorigin="anonymous"></script>
+
 </head>
+
 <body>
+
     <header>
+
         <h1 class="title">
+
             <span class="main-title">Tu Día Hábil Uruguay</span>
+
         </h1>
+
     </header>
 
     <main>
+
         <h2 class="sub-title">Calculadora de tu Día Hábil</h2>
 
         <div class="container">
+
             <fieldset>
+
                 <legend>Ingresa los datos:</legend>
 
                 <label for="fecha">Selecciona una fecha:</label>
+
                 <input type="date" id="fecha">
 
-                <label for="dias">Cantidad de días corridos:</label>
+                <label for="dias">Cantidad de días hábiles:</label>
+
                 <input type="number" id="dias" min="1" placeholder="Ej: 10">
+
             </fieldset>
+
         </div>
 
         <button onclick="calcularDiaHabil()">Calcular</button>
@@ -41,54 +65,111 @@
     </main>
 
     <footer>
+
     </footer>
 
     <script>
+
         // Lista de feriados en Uruguay (como fechas en formato ISO)
+
         const feriados = [
-            "2025-01-01", "2025-01-06", "2025-03-01", "2025-03-02", "2025-03-03", "2025-03-04", 
-            "2025-04-14", "2025-04-15", "2025-04-16", "2025-04-17", "2025-04-18", "2025-04-19", "2025-04-20", 
-            "2025-05-01", "2025-05-18", "2025-06-19", "2025-07-18", "2025-08-25", "2025-10-12", 
-            "2025-11-02", "2025-12-25"
+
+            "2025-01-01", // Año Nuevo
+
+            "2025-01-06", // Día de Reyes
+
+            "2025-03-01", // Transmisión de mando
+
+            "2025-03-02", // Carnaval
+
+            "2025-03-03", // Carnaval
+
+            "2025-03-04", // Carnaval
+
+            "2025-04-14", // Semana de Turismo (lunes)
+
+            "2025-04-15", // Semana de Turismo (martes)
+
+            "2025-04-16", // Semana de Turismo (miércoles)
+
+            "2025-04-17", // Semana de Turismo (jueves)
+
+            "2025-04-18", // Semana de Turismo (viernes)
+
+            "2025-05-01", // Día de los Trabajadores
+
+            "2025-05-18", // Batalla de las Piedras
+
+            "2025-06-19", // Natalicio de Artigas
+
+            "2025-07-18", // Jura de la Constitución
+
+            "2025-08-25", // Declaratoria de la Independencia
+
+            "2025-10-12", // Día de la Raza
+
+            "2025-11-02", // Día de los Difuntos
+
+            "2025-12-25"  // Navidad
+
         ];
 
         // Función para verificar si una fecha es feriado o fin de semana
+
         function esFeriadoOFinDeSemana(fecha) {
+
             const dia = fecha.getDay();
+
             const fechaIso = fecha.toISOString().split('T')[0]; // Fecha en formato YYYY-MM-DD
+
             
+
             // Si es sábado (6) o domingo (0) o es un feriado
+
             return dia === 0 || dia === 6 || feriados.includes(fechaIso);
+
         }
 
         // Función para calcular los días hábiles
-        function calcularDiaHabil() {
-            const fechaSeleccionada = document.getElementById('fecha').value;
-            const diasCorridos = parseInt(document.getElementById('dias').value, 10); // Convertimos a entero
 
-            if (!fechaSeleccionada || isNaN(diasCorridos) || diasCorridos <= 0) {
+        function calcularDiaHabil() {
+
+            const fechaSeleccionada = document.getElementById('fecha').value;
+
+            const diasHabil = parseInt(document.getElementById('dias').value);
+
+            if (!fechaSeleccionada || isNaN(diasHabil)) {
+
                 document.getElementById('resultado').textContent = 'Por favor, ingresa todos los datos correctamente.';
+
                 return;
+
             }
 
             let fecha = new Date(fechaSeleccionada); // Convertimos la fecha seleccionada a objeto Date
-            let fechaFinal = new Date(fecha); // Copiamos la fecha seleccionada
+
             let diasContados = 0;
 
-            // Sumamos los días corridos
-            fechaFinal.setDate(fecha.getDate() + diasCorridos);
+            while (diasContados < diasHabil) {
 
-            // Ahora recorremos el rango de fechas entre la fecha seleccionada y la fecha final
-            let diasHabil = 0;
-            for (let currentDate = new Date(fecha); currentDate <= fechaFinal; currentDate.setDate(currentDate.getDate() + 1)) {
-                if (!esFeriadoOFinDeSemana(currentDate)) {
-                    diasHabil++;
+                fecha.setDate(fecha.getDate() + 1); // Aumentamos un día
+
+                if (!esFeriadoOFinDeSemana(fecha)) {
+
+                    diasContados++;
+
                 }
+
             }
 
-            const fechaResultado = fechaFinal.toISOString().split('T')[0]; // Obtenemos la fecha en formato YYYY-MM-DD
-            document.getElementById('resultado').textContent = `Si sumas ${diasCorridos} días corridos, el día hábil final es: ${fechaResultado}. Total de días hábiles: ${diasHabil}`;
+            const fechaResultado = fecha.toISOString().split('T')[0]; // Obtenemos la fecha en formato YYYY-MM-DD
+
+            document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fechaResultado}`;
+
         }
+
     </script>
+
 </body>
+
 </html>
