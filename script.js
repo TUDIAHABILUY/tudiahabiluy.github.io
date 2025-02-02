@@ -14,7 +14,7 @@ function calcularDiaHabil() {
     let fechaHabil = new Date(fecha);
 
     // Comenzar a contar a partir del siguiente día
-    fechaHabil.setDate(fechaHabil.getDate() + 1);
+    fechaHabil.setDate(fechaHabil.getDate() + 1);  // Avanzamos al siguiente día
 
     while (diasContados < diasHabil) {
         // Si cambia de año, recalcular los feriados
@@ -28,7 +28,7 @@ function calcularDiaHabil() {
             diasContados++;
         }
 
-        // Avanzar al siguiente día solo si no se ha contado el número de días requeridos
+        // Solo avanzar al siguiente día si no hemos contado el número de días hábiles deseados
         if (diasContados < diasHabil) {
             fechaHabil.setDate(fechaHabil.getDate() + 1);
         }
