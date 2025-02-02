@@ -1,68 +1,67 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: linear-gradient(135deg, #0033A0, #FFD700); /* Colores de Uruguay */
-    color: #fff;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Contenedor principal */
 .container {
-    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
     max-width: 400px;
-    margin: 50px auto;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Título */
 h1 {
-    font-size: 22px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
     margin-bottom: 20px;
 }
 
-/* Labels */
-label {
-    font-size: 16px;
-    display: block;
-    margin-top: 10px;
-}
-
-/* Inputs */
-input {
+/* Estilos de los inputs y botones */
+input[type="date"], input[type="number"], button {
     width: 100%;
-    padding: 8px;
-    margin: 5px 0 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
 }
 
-/* Botón */
+/* Enfoque de los inputs */
+input:focus, button:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Estilo del botón */
 button {
-    background: #FFD700;
-    color: #0033A0;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s;
 }
 
+/* Hover en el botón */
 button:hover {
-    background: #FFC300;
+    background-color: #45a049;
 }
 
-/* Resultado */
+/* Resultados */
 p {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
+    color: #333;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 20px;
 }
