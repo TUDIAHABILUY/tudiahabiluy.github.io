@@ -1,75 +1,68 @@
+/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    background: repeating-linear-gradient(
-        45deg, 
-        white, white 50px, 
-        #4A90E2 50px, #4A90E2 100px
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #0033A0, #FFD700); /* Colores de Uruguay */
+    color: #fff;
     margin: 0;
+    padding: 0;
 }
 
+/* Contenedor principal */
 .container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
     width: 90%;
     max-width: 400px;
-    border: 3px solid #FFD700; /* Amarillo del sol */
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Título */
 h1 {
-    color: #0057B8;
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
+/* Labels */
 label {
-    font-size: 14px;
-    color: #333;
+    font-size: 16px;
     display: block;
     margin-top: 10px;
-    font-weight: 600;
 }
 
+/* Inputs */
 input {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 8px;
+    margin: 5px 0 15px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    outline: none;
+    text-align: center;
 }
 
+/* Botón */
 button {
-    width: 100%;
     background: #FFD700;
-    color: #333;
+    color: #0033A0;
     border: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px 15px;
     font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-    transform: scale(1.05);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
-    background: #FFC107;
+    background: #FFC300;
 }
 
-#resultado {
+/* Resultado */
+p {
     font-size: 18px;
-    color: #333;
     margin-top: 15px;
     font-weight: bold;
 }
