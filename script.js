@@ -27,28 +27,25 @@ function calcularDiaHabil() {
     let fecha = new Date(fechaSeleccionada); // Convertimos la fecha seleccionada a objeto Date
     let diasContados = 0;
 
-    // Si la fecha seleccionada es un fin de semana (sábado o domingo), ajustamos la fecha
+    // Si la fecha seleccionada es viernes, sábado o domingo, avanzamos al lunes y verificamos si es feriado
     if (fecha.getDay() === 6) { // Sábado
         fecha.setDate(fecha.getDate() + 2); // Avanzamos al lunes
     } else if (fecha.getDay() === 0) { // Domingo
         fecha.setDate(fecha.getDate() + 1); // Avanzamos al lunes
-    } else {
-        // Si no es fin de semana, el primer día hábil es el día siguiente, siempre que no sea feriado
-        fecha.setDate(fecha.getDate() + 1);
+    } else if (fecha.getDay() === 5) { // Viernes
+        fecha.setDate(fecha.getDate() + 3); // Avanzamos al lunes
     }
 
-    // Ahora verificamos si el lunes es feriado, si es así, avanzamos al siguiente día hábil
+    // Verificamos si el lunes es feriado, si es así, avanzamos al siguiente día hábil
     while (esFeriadoOFinDeSemana(fecha)) {
         fecha.setDate(fecha.getDate() + 1); // Avanzamos un día
     }
 
     // Ahora contamos los días hábiles, excluyendo fines de semana y feriados
     while (diasContados < diasHabil) {
+        fecha.setDate(fecha.getDate() + 1); // Aumentamos un día
         if (!esFeriadoOFinDeSemana(fecha)) {
             diasContados++;
-        }
-        if (diasContados < diasHabil) {
-            fecha.setDate(fecha.getDate() + 1); // Aumentamos un día
         }
     }
 
