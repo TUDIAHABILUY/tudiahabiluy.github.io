@@ -35,10 +35,8 @@ function calcularDiaHabil() {
     let fecha = new Date(fechaSeleccionada);
     let contador = 0;
 
-    // Si la fecha inicial es un feriado o fin de semana, saltar al primer día hábil
-    while (esFeriadoOFinDeSemana(fecha)) {
-        fecha = obtenerSiguienteDiaHabil(fecha);
-    }
+    // Avanzar un día para que el bucle maneje el primer día correctamente
+    fecha.setDate(fecha.getDate() + 1);
 
     while (contador < diasHabil) {
         fecha = obtenerSiguienteDiaHabil(fecha);
