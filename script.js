@@ -1,123 +1,55 @@
+// Lista de feriados en Uruguay (como fechas en formato ISO)
+const feriados = [
+    "2025-01-01", // Año Nuevo
+    "2025-01-06", // Día de Reyes
+    "2025-03-01", // Transmisión de mando
+    "2025-03-02", // Carnaval
+    "2025-03-03", // Carnaval
+    "2025-03-04", // Carnaval
+    "2025-04-14", // Semana de Turismo (lunes)
+    "2025-04-15", // Semana de Turismo (martes)
+    "2025-04-16", // Semana de Turismo (miércoles)
+    "2025-04-17", // Semana de Turismo (jueves)
+    "2025-04-18", // Semana de Turismo (viernes)
+    "2025-05-01", // Día de los Trabajadores
+    "2025-05-18", // Batalla de las Piedras
+    "2025-06-19", // Natalicio de Artigas
+    "2025-07-18", // Jura de la Constitución
+    "2025-08-25", // Declaratoria de la Independencia
+    "2025-10-12", // Día de la Raza
+    "2025-11-02", // Día de los Difuntos
+    "2025-12-25"  // Navidad
+];
+
+// Función para verificar si una fecha es feriado o fin de semana
+function esFeriadoOFinDeSemana(fecha) {
+    const dia = fecha.getDay();
+    const fechaIso = fecha.toISOString().split('T')[0]; // Fecha en formato YYYY-MM-DD
+    
+    // Si es sábado (6) o domingo (0) o es un feriado
+    return dia === 0 || dia === 6 || feriados.includes(fechaIso);
+}
+
+// Función para calcular los días hábiles
 function calcularDiaHabil() {
-    let fechaInput = document.getElementById("fecha").value;
-    let diasHabil = parseInt(document.getElementById("dias").value);
+    const fechaSeleccionada = document.getElementById('fecha').value;
+    const diasHabil = parseInt(document.getElementById('dias').value);
 
-    // Validación (sin cambios)
-    if (!fechaInput || isNaN(diasHabil) || diasHabil < 1) {
-        mostrarResultado("Ingresa una fecha y una cantidad de días hábiles válida (mínimo 1 día).");
+    if (!fechaSeleccionada || isNaN(diasHabil)) {
+        document.getElementById('resultado').textContent = 'Por favor, ingresa todos los datos correctamente.';
         return;
     }
 
-    let fecha = new Date(fechaInput);
-
-    // Validación de fecha
-    if (isNaN(fecha.getTime())) {
-        mostrarResultado("Ingresa una fecha válida.");
-        return;
-    }
-
-    let anioActual = fecha.getFullYear();
-    let feriados = obtenerFeriados(anioActual);
+    let fecha = new Date(fechaSeleccionada); // Convertimos la fecha seleccionada a objeto Date
     let diasContados = 0;
-    let fechaHabil = new Date(fecha);
-
-    // Comenzar a contar desde el *siguiente* día
-    fechaHabil.setDate(fechaHabil.getDate() + 1);
 
     while (diasContados < diasHabil) {
-        if (fechaHabil.getFullYear() !== anioActual) {
-            anioActual = fechaHabil.getFullYear();
-            feriados = obtenerFeriados(anioActual);
-        }
-
-        if (!esFeriadoOFinDeSemana(fechaHabil, feriados)) {
+        fecha.setDate(fecha.getDate() + 1); // Aumentamos un día
+        if (!esFeriadoOFinDeSemana(fecha)) {
             diasContados++;
-            console.log("Contando día: " + fechaHabil.toLocaleDateString("es-UY"));
         }
-
-        if (diasContados < diasHabil) {
-            fechaHabil.setDate(fechaHabil.getDate() + 1);
-        }
-
-        console.log("diasContados: " + diasContados);
-        console.log("fechaHabil: " + fechaHabil.toLocaleDateString("es-UY"));
     }
 
-    mostrarResultado("Día hábil: " + fechaHabil.toLocaleDateString("es-UY"));
-}
-
-function esFeriadoOFinDeSemana(fecha, feriados) {
-    let fechaString = fecha.getFullYear() + '-' + (fecha.getMonth() + 1).toString().padStart(2, '0') + '-' + fecha.getDate().toString().padStart(2, '0');
-    let esFeriado = feriados.some(feriado => {
-        let feriadoDate = new Date(feriado);
-        return feriadoDate.getFullYear() === fecha.getFullYear() &&
-               feriadoDate.getMonth() === fecha.getMonth() &&
-               feriadoDate.getDate() === fecha.getDate();
-    });
-    return esFeriado || fecha.getDay() === 0 || fecha.getDay() === 6;
-}
-
-function obtenerFeriados(year) {
-  // Feriados fijos
-  let feriados = [
-    ${year}-01-01, // Año Nuevo
-    ${year}-05-01, // Día de los Trabajadores
-    ${year}-07-18, // Jura de la Constitución
-    ${year}-08-25, // Declaratoria de la Independencia
-    ${year}-12-25  // Navidad
-  ];
-
-  // Feriados moviles (Carnaval y Semana Santa)
-    feriados.push(obtenerCarnaval(year));
-    let semanaSanta = obtenerSemanaSanta(year);
-    feriados.push(semanaSanta[0]); //Jueves Santo
-    feriados.push(semanaSanta[1]); //Viernes Santo
-
-  return feriados;
-}
-
-function obtenerCarnaval(year) {
-    let fechaPascua = calcularFechaPascua(year);
-    let fechaCarnaval = new Date(fechaPascua);
-    fechaCarnaval.setDate(fechaCarnaval.getDate() - 48); // 48 días antes del domingo de pascua
-    return formatDate(fechaCarnaval);
-}
-
-function obtenerSemanaSanta(year) {
-    let fechaPascua = calcularFechaPascua(year);
-    let juevesSanto = new Date(fechaPascua);
-    juevesSanto.setDate(juevesSanto.getDate() - 3);
-    let viernesSanto = new Date(fechaPascua);
-    viernesSanto.setDate(viernesSanto.getDate() - 2);
-    return [formatDate(juevesSanto), formatDate(viernesSanto)];
-}
-
-// Función para calcular la fecha de Pascua (Algoritmo de Meeus/Jones/Butcher)
-function calcularFechaPascua(year) {
-    let a = year % 19;
-    let b = Math.floor(year / 100);
-    let c = year % 100;
-    let d = Math.floor(b / 4);
-    let e = b % 4;
-    let f = Math.floor((b + 8) / 25);
-    let g = Math.floor((b - f + 1) / 3);
-    let h = (19 * a + b - d - g + 15) % 30;
-    let i = Math.floor(c / 4);
-    let j = c % 4;
-    let k = (32 + 2 * e + 2 * i - h - j) % 7;
-    let l = Math.floor((a + 11 * h + 22 * k) / 451);
-    let m = (h + k - 7 * l + 114) % 31;
-    let mes = Math.floor((h + k - 7 * l + 114) / 31);
-    let dia = m + 1;
-
-    return new Date(year, mes - 1, dia); // Meses en JavaScript empiezan desde 0
-}
-
-function formatDate(date) {
-    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
-}
-
-
-function mostrarResultado(mensaje) {
-  document.getElementById("resultado").textContent = mensaje;
+    const fechaResultado = fecha.toISOString().split('T')[0]; // Obtenemos la fecha en formato YYYY-MM-DD
+    document.getElementById('resultado').textContent = `El día hábil número ${diasHabil} es: ${fechaResultado}`;
 }
