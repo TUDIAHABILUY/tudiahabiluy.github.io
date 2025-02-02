@@ -2,20 +2,13 @@ function calcularDiaHabil() {
     let fechaInput = document.getElementById("fecha").value;
     let diasHabil = parseInt(document.getElementById("dias").value);
 
-    // Validación (sin cambios)
+    // Validación (sin la restricción de la fecha actual ni la validación de fecha)
     if (!fechaInput || isNaN(diasHabil) || diasHabil < 1) {
         mostrarResultado("Ingresa una fecha y una cantidad de días hábiles válida (mínimo 1 día).");
         return;
     }
 
     let fecha = new Date(fechaInput);
-
-    // Validación de fecha
-    if (isNaN(fecha.getTime())) {
-        mostrarResultado("Ingresa una fecha válida.");
-        return;
-    }
-
     let anioActual = fecha.getFullYear();
     let feriados = obtenerFeriados(anioActual);
     let diasContados = 0;
