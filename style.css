@@ -3,7 +3,7 @@ body {
     background: repeating-linear-gradient(
         45deg, 
         white, white 50px, 
-        #0057B8 50px, #0057B8 100px
+        #4A90E2 50px, #4A90E2 100px
     );
     display: flex;
     justify-content: center;
@@ -57,9 +57,13 @@ button {
     font-weight: 600;
     cursor: pointer;
     margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
     background: #FFC107;
 }
 
