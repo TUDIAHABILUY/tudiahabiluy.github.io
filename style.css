@@ -1,7 +1,7 @@
- /* Estilos generales */
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F4E1D2;
+    background-color: #F4E1D2;  /* Color cálido suave */
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,7 +12,7 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: #FFF1E6;
+    background-color: #FFF1E6;  /* Fondo suave para el contenedor */
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ body {
 h1 {
     text-align: center;
     font-size: 1.5rem;
-    color: #D45D6D;
+    color: #D45D6D;  /* Tono cálido para el texto */
     margin-bottom: 20px;
 }
 
@@ -34,20 +34,20 @@ input[type="date"], input[type="number"], button {
     padding: 12px;
     margin: 8px 0;
     border-radius: 8px;
-    border: 1px solid #E2B9A3;
+    border: 1px solid #E2B9A3;  /* Tono cálido para bordes */
     font-size: 1rem;
-    background-color: #FFFAF3;
+    background-color: #FFFAF3;  /* Color cálido para los campos */
 }
 
 /* Enfoque de los inputs */
 input:focus, button:focus {
     outline: none;
-    border-color: #D45D6D;
+    border-color: #D45D6D;  /* Cambio al color cálido en el enfoque */
 }
 
 /* Estilo del botón */
 button {
-    background-color: #F9C7B1;
+    background-color: #F9C7B1;  /* Color cálido para el botón */
     color: #4E4B3C;
     border: none;
     cursor: pointer;
@@ -56,7 +56,7 @@ button {
 
 /* Hover en el botón */
 button:hover {
-    background-color: #E29F86;
+    background-color: #E29F86;  /* Tono más fuerte en el hover */
 }
 
 /* Resultados */
@@ -65,16 +65,4 @@ p {
     text-align: center;
     font-size: 1rem;
     margin-top: 20px;
-}
-
-/* Estilo del pie de página */
-footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #4E4B3C;
-    margin-top: 30px;
-}
-
-footer p {
-    margin: 10px 0;
 }
