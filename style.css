@@ -12,36 +12,38 @@ body {
     padding: 20px;
 }
 
+/* Estilos para el encabezado */
 header {
     text-align: center;
     margin-bottom: 30px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #004d40;
     margin-bottom: 10px;
 }
 
 .main-title {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #00695c;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: #00796b;
     margin-bottom: 20px;
     text-align: center;
 }
 
+/* Estilos para el contenedor principal */
 .container {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -50,6 +52,7 @@ h2 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para el fieldset */
 fieldset {
     border: 1px solid #00796b;
     padding: 15px;
@@ -62,6 +65,7 @@ legend {
     color: #004d40;
 }
 
+/* Estilos para las etiquetas */
 label {
     font-size: 1rem;
     display: block;
@@ -69,6 +73,7 @@ label {
     color: #004d40;
 }
 
+/* Estilos para los inputs */
 input[type="date"],
 input[type="number"] {
     width: 100%;
@@ -87,11 +92,12 @@ input[type="number"]:focus {
     box-shadow: 0 0 5px rgba(0, 77, 64, 0.3);
 }
 
+/* Estilos para el botón */
 button {
     background-color: #00796b;
     color: white;
-    font-size: 1.1rem;
-    padding: 10px 20px;
+    font-size: 1rem;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -103,10 +109,41 @@ button:hover {
     background-color: #004d40;
 }
 
+/* Estilos para el resultado */
 #resultado {
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #004d40;
     text-align: center;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    input[type="date"],
+    input[type="number"] {
+        font-size: 0.9rem;
+    }
 }
