@@ -1,92 +1,133 @@
+/* Reset general */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F0EFE9;
-    margin: 0;
-    padding: 0;
+    background-color: #F8F9FA;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Título principal */
+/* Títulos */
 .title {
-    text-align: center;
-    font-size: 1.8rem; /* Ajustado a un tamaño más pequeño */
+    font-size: 2rem;
     color: #D45D6D;
-    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .main-title {
     display: block;
-    font-size: 2rem; /* Ajustado el tamaño */
-    background-color: #FFFAF3;
-    padding: 10px;
+    font-size: 2.2rem;
+    background-color: #FFF;
+    padding: 10px 20px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Subtítulo */
 .sub-title {
-    text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #4E4B3C;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Contenedor principal */
 .container {
-    background-color: #FFF1E6;
-    padding: 40px;
+    background-color: #FFF;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     text-align: left;
-    margin-bottom: 20px;
 }
 
-/* Estilo de los inputs y botones */
-input[type="date"], input[type="number"], button {
+/* Labels */
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+/* Inputs */
+input[type="date"], input[type="number"] {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #E2B9A3;
+    border-radius: 6px;
+    border: 1px solid #CCC;
     font-size: 1rem;
-    background-color: #FFFAF3;
+    background-color: #F9F9F9;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Estilo del botón */
+input:focus {
+    border-color: #D45D6D;
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 93, 109, 0.5);
+}
+
+/* Botón */
 button {
-    background-color: #F9C7B1;
-    color: #4E4B3C;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 6px;
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #D45D6D;
+    color: white;
+    font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #E29F86;
+    background-color: #C04E5E;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 /* Resultados */
 p {
-    color: #4E4B3C;
+    color: #333;
     font-size: 1rem;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-/* Estilo del pie de página */
+/* Pie de página */
 footer {
     font-size: 0.9rem;
-    color: #4E4B3C;
-    position: fixed;
-    bottom: 10px;
-    right: 20px;
-    text-align: right;
+    color: #777;
+    margin-top: 20px;
+    text-align: center;
     font-style: italic;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 1.8rem;
+        padding: 8px 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+    }
 }
