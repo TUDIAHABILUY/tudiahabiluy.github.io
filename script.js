@@ -1,37 +1,31 @@
 function calcularDiaHabil() {
     let fechaInput = document.getElementById("fecha").value;
-    let diasInput = parseInt(document.getElementById("dias").value);
-    let resultado = document.getElementById("resultado");
+    let diasHabil = parseInt(document.getElementById("dias").value);
 
-    if (!fechaInput || isNaN(diasInput) || diasInput <= 0) {
-        resultado.textContent = "Por favor ingresa una fecha y un número válido de días.";
+    if (!fechaInput || isNaN(diasHabil) || diasHabil <= 0) {
+        document.getElementById("resultado").innerText = "⚠️ Ingresa una fecha y cantidad de días válidos.";
         return;
     }
 
     let fecha = new Date(fechaInput);
-    let diasAgregados = 0;
+    let diasContados = 0;
 
     const feriadosUruguay = [
-        "01-01", // Año Nuevo
-        "06-01", // Día de Reyes
-        "19-04", // Desembarco de los 33 Orientales
-        "01-05", // Día del Trabajador
-        "18-07", // Jura de la Constitución
-        "25-08", // Declaratoria de la Independencia
-        "02-11", // Día de los Difuntos
-        "25-12"  // Navidad
+        "2025-01-01", "2025-04-17", "2025-05-01", "2025-07-18", "2025-08-25",
+        "2025-10-12", "2025-11-02", "2025-12-25"
     ];
 
-    while (diasAgregados < diasInput) {
+    while (diasContados < diasHabil) {
         fecha.setDate(fecha.getDate() + 1);
-        let diaSemana = fecha.getDay();
-        let fechaFormato = ("0" + fecha.getDate()).slice(-2) + "-" + ("0" + (fecha.getMonth() + 1)).slice(-2);
 
-        if (diaSemana !== 0 && diaSemana !== 6 && !feriadosUruguay.includes(fechaFormato)) {
-            diasAgregados++;
+        let esFeriado = feriadosUruguay.includes(fecha.toISOString().split('T')[0]);
+        let esFinDeSemana = fecha.getDay() === 0 || fecha.getDay() === 6;
+
+        if (!esFeriado && !esFinDeSemana) {
+            diasContados++;
         }
     }
 
-    resultado.textContent = `El día hábil será: ${fecha.toLocaleDateString("es-ES")}`;
+    let resultadoTexto = `📅 Día hábil: ${fecha.toLocaleDateString("es-UY")}`;
+    document.getElementById("resultado").innerText = resultadoTexto;
 }
-
