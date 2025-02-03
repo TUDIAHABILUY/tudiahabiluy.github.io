@@ -8,15 +8,16 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #f4f7f9;
+    background-color: #eafaf1; /* Verde claro pastel */
     color: #333;
     width: 100vw; 
     min-height: 100vh; 
     overflow-x: hidden; 
 }
+
 /* Estilos del Header */
 header {
-    background: #007BFF;
+    background: #6fcf97; /* Verde pastel */
     color: white;
     padding: 20px 0;
     font-size: 24px;
@@ -53,7 +54,7 @@ input {
     width: 90%;
     padding: 10px;
     margin: 5px 0 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #a3d9b1; /* Verde pastel más oscuro */
     border-radius: 5px;
     font-size: 16px;
     outline: none;
@@ -61,15 +62,15 @@ input {
 }
 
 input:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    border-color: #6fcf97; /* Verde pastel */
+    box-shadow: 0 0 8px rgba(111, 207, 151, 0.3);
 }
 
 /* Estilos del Botón */
 button {
-    width: 50%; /* Igual que los inputs */
+    width: 50%;
     padding: 12px;
-    background: #007BFF;
+    background: #6fcf97; /* Verde pastel */
     color: white;
     font-size: 18px;
     border: none;
@@ -84,9 +85,8 @@ button {
 }
 
 button:hover {
-    background: #0056b3;
+    background: #57b983; /* Verde pastel más oscuro */
 }
-
 
 /* Estilos de los Mensajes Informativos */
 .info {
@@ -95,15 +95,13 @@ button:hover {
     margin-bottom: 10px;
 }
 
-/*  Contenedor de Resultados */
-
+/* Contenedor de Resultados */
 .resultado-container {
     margin-top: 20px;
-    background: #fff;
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     width: 50%;
-    
     margin: 30px auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: left; 
@@ -115,33 +113,25 @@ button:hover {
     font-size: 16px;
 }
 
+/* Título dentro del resultado */
 .resultado-container h3 {
-    color: #007BFF;
+    color: #6fcf97; /* Verde pastel */
     font-size: 20px;
     margin-bottom: 10px;
 }
-/*  Estilos para el Subtítulo (h2) */
+
+/* Estilos para el Subtítulo (h2) */
 .sub-title {
     font-size: 18px;
     font-weight: bold;
     color: #333;
     margin-top: 30px;
-    width: 90%; /* Igual que los inputs */
+    width: 90%;
     padding: 12px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     padding: 10px 0; 
-}
-
-/*  Estilos del Header */
-header {
-    background: #007BFF;
-    color: white;
-    padding: 20px 0;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Reducir tamaño del título en el header */
@@ -156,7 +146,7 @@ header {
     .container, .resultado-container {
         width: 90%;
     }
-    button{
-        width: 90%; /* Igual que los inputs */
+    button {
+        width: 90%;
     }
 }
