@@ -10,9 +10,8 @@ body {
     background-color: #f4f7f9;
     color: #333;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,10 +21,10 @@ body {
 header {
     background: #007BFF;
     color: white;
-    padding: 15px 0;
-    font-size: 22px;
+    padding: 12px 0;
+    font-size: 18px;
     font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     text-align: center;
 }
@@ -33,45 +32,39 @@ header {
 /* Contenedor Principal */
 .container {
     background: white;
-    width: 100%;
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
-/* Estilo de Fieldset */
-fieldset {
-    border: none;
-    padding: 0;
-}
-
-/* Estilos de las Etiquetas */
+/* Estilos de los Labels */
 label {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     display: block;
-    margin: 10px 0 5px;
+    margin: 8px 0 4px;
     color: #333;
 }
 
 /* Estilos de los Inputs */
 input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
     border-color: #007BFF;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 /* Estilos del Botón */
@@ -80,7 +73,7 @@ button {
     padding: 12px;
     background: #007BFF;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -94,49 +87,47 @@ button:hover {
     transform: scale(1.02);
 }
 
-/* Estilos de los Mensajes Informativos */
-.info {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
 /* Contenedor de Resultados */
 .resultado-container {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 30px auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
 .resultado-container h3 {
     color: #007BFF;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .resultado-container p {
-    padding: 8px 0;
-    font-size: 16px;
+    padding: 6px 0;
+    font-size: 14px;
     color: #444;
 }
 
-/* Subtítulos */
-.sub-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    padding: 10px 0;
-}
-
 /* Responsividad */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+    header {
+        font-size: 16px;
+    }
+
     .container, .resultado-container {
-        width: 90%;
-        max-width: none;
+        width: 95%;
+        padding: 15px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
     }
 }
