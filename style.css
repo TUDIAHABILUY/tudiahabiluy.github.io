@@ -1,40 +1,48 @@
+/* Estilos Globales */
 * {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
     background-color: #f4f7f9;
     color: #333;
-    width: 100vw; 
-    min-height: 100vh; 
-    overflow-x: hidden; 
+    text-align: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 /* Estilos del Header */
 header {
     background: #007BFF;
     color: white;
-    padding: 20px 0;
-    font-size: 24px;
+    padding: 15px 0;
+    font-size: 22px;
     font-weight: bold;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
 }
 
-/* Contenedor del Formulario */
+/* Contenedor Principal */
 .container {
     background: white;
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
     margin: 30px auto;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-/* Estilo del Fieldset */
+/* Estilo de Fieldset */
 fieldset {
     border: none;
     padding: 0;
@@ -46,18 +54,19 @@ label {
     font-size: 16px;
     display: block;
     margin: 10px 0 5px;
+    color: #333;
 }
 
 /* Estilos de los Inputs */
 input {
-    width: 90%;
-    padding: 10px;
-    margin: 5px 0 15px;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     outline: none;
-    transition: 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
@@ -67,26 +76,23 @@ input:focus {
 
 /* Estilos del Botón */
 button {
-    width: 50%; /* Igual que los inputs */
+    width: 100%;
     padding: 12px;
     background: #007BFF;
     color: white;
     font-size: 18px;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
     margin-top: 10px;
-    margin-bottom: 20px; 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 button:hover {
     background: #0056b3;
+    transform: scale(1.02);
 }
-
 
 /* Estilos de los Mensajes Informativos */
 .info {
@@ -95,24 +101,15 @@ button:hover {
     margin-bottom: 10px;
 }
 
-/*  Contenedor de Resultados */
-
+/* Contenedor de Resultados */
 .resultado-container {
-    margin-top: 20px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 50%;
-    
+    max-width: 500px;
     margin: 30px auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left; 
-}
-
-/* Estilos para los párrafos dentro del resultado */
-.resultado-container p {
-    padding: 10px 0; 
-    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 .resultado-container h3 {
@@ -120,43 +117,26 @@ button:hover {
     font-size: 20px;
     margin-bottom: 10px;
 }
-/*  Estilos para el Subtítulo (h2) */
+
+.resultado-container p {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Subtítulos */
 .sub-title {
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-top: 30px;
-    width: 90%; /* Igual que los inputs */
-    padding: 12px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 0; 
-}
-
-/*  Estilos del Header */
-header {
-    background: #007BFF;
-    color: white;
-    padding: 20px 0;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Reducir tamaño del título en el header */
-.title {
-    font-size: 20px; 
-    font-weight: bold;
-    text-align: center;
+    padding: 10px 0;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
     .container, .resultado-container {
         width: 90%;
-    }
-    button{
-        width: 90%; /* Igual que los inputs */
+        max-width: none;
     }
 }
