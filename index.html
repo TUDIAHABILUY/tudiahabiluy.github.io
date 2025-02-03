@@ -19,3 +19,31 @@
     <main>
         <h2 class="sub-title">Obtén una fecha sumando días hábiles</h2>
         <div class="container">
+            <fieldset>
+                <legend>📌 Ingresa los datos:</legend>
+
+                <label for="fecha">📆 Fecha de inicio:</label>
+                <input type="date" id="fecha">
+                <p class="info">Selecciona la fecha desde la cual quieres comenzar el conteo.</p>
+
+                <label for="dias">🔢 ¿Cuántos días hábiles quieres sumar?</label>
+                <input type="number" id="dias" min="1" placeholder="Ejemplo: 5">
+                <p class="info">Indica la cantidad de días hábiles a contar desde la fecha ingresada.</p>
+
+            </fieldset>
+        </div>
+
+        <button onclick="calcularDiaHabil()">📊 Calcular Fecha</button>
+
+        <div class="resultado-container">
+            <h3>📢 Resultado:</h3>
+            <p><strong>📅 Fecha inicial:</strong> <span id="fecha-inicial"></span></p>
+            <p><strong>✅ Fecha resultante:</strong> <span id="resultado"></span></p>
+        </div>
+    </main>
+
+   
+
+    <script src="script.js"></script>
+</body>
+</html>
