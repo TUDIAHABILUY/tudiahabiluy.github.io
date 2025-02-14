@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calcula la fecha resultante al sumar días hábiles en Uruguay.">
+    <meta name="description" content="Calculadora de día hábil en Uruguay: Suma días hábiles a una fecha en Uruguay y descubre cuál es la fecha resultante.">
+    <meta name="keywords" content="día hábil Uruguay, calcular día hábil Uruguay, fecha hábil Uruguay, días hábiles, calcular fecha Uruguay">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <title>Calculadora de Fecha Hábil en Uruguay</title>
+    <title>Calculadora de Día Hábil en Uruguay - Suma días hábiles</title>
     <link rel="stylesheet" href="style.css"> <!-- Importar estilos CSS -->
 </head>
 <body>
 
     <header>
         <h1 class="title">
-            📅 Calculadora de Fecha Hábil
+            📅 Calculadora de Día Hábil en Uruguay
         </h1>
     </header>
 
     <main>
-        <h2 class="sub-title">Obtén una fecha sumando días hábiles</h2>
+        <h2 class="sub-title">Calcula los días hábiles en Uruguay de manera fácil</h2>
+        <p>¿Necesitas saber cómo calcular un día hábil en Uruguay? Usa nuestra herramienta para sumar días hábiles y obtener la fecha resultante.</p>
         <div class="container">
             <fieldset>
                 <legend>📌 Ingresa los datos:</legend>
 
                 <label for="fecha">📆 Fecha de inicio:</label>
                 <input type="date" id="fecha">
-                <p class="info">Selecciona la fecha desde la cual quieres comenzar el conteo.</p>
+                <p class="info">Selecciona la fecha desde la cual quieres comenzar el conteo de días hábiles.</p>
 
                 <label for="dias">🔢 ¿Cuántos días hábiles quieres sumar?</label>
                 <input type="number" id="dias" min="1" placeholder="Ejemplo: 5">
@@ -40,9 +42,16 @@
             <p><strong>📅 Fecha inicial:</strong> <span id="fecha-inicial"></span></p>
             <p><strong>✅ Fecha resultante:</strong> <span id="resultado"></span></p>
         </div>
-    </main>
 
-   
+        <!-- Sección de búsqueda en Google -->
+        <div class="search-container">
+            <h3>🔍 Busca más información:</h3>
+            <form action="https://www.google.com/search" method="get" target="_blank">
+                <input type="text" name="q" placeholder="Buscar en Google..." id="search-query">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
