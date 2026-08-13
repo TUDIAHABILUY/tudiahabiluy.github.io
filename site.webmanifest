@@ -1,0 +1,31 @@
+{
+  "name": "Tu Día Hábil - Calculadora Días Hábiles Uruguay",
+  "short_name": "TuDíaHábil",
+  "description": "Calculadora de días hábiles en Uruguay con feriados 2026 y Ley 16.805",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0F2D1E",
+  "background_color": "#E8F5E9",
+  "display": "standalone",
+  "scope": "https://tudiahabiluy.github.io/",
+  "start_url": "https://tudiahabiluy.github.io/",
+  "lang": "es-UY",
+  "orientation": "portrait"
+}
