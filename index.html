@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tu Día Hábil | Calculadora de Días Hábiles Uruguay 2026 - Ley 16.805</title>
+
+  <!-- SEO Principal -->
+  <meta name="description" content="Calculadora de día hábil en Uruguay: Sumá días hábiles a una fecha en Uruguay y descubrí cuál es la fecha resultante. Con feriados 2026 por Ley 16.805, sábados y domingos descontados.">
+  <meta name="keywords" content="día hábil Uruguay, tu dia habil, tudiahabil, calcular día hábil Uruguay, fecha hábil Uruguay, días hábiles, calcular fecha Uruguay, feriados Uruguay 2026, ley 16805">
+  <link rel="canonical" href="https://tudiahabiluy.github.io/">
+  <meta name="theme-color" content="#0F2D1E">
+
+  <!-- Favicon Pack - Tu Día Hábil -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- OG / WhatsApp Banner - Tu Día Hábil -->
+  <meta property="og:title" content="Tu Día Hábil - Calculadora de Día Hábil en Uruguay">
+  <meta property="og:description" content="Sumá días hábiles fácil y rápido, descontando fines de semana y feriados uruguayos con traslado por Ley 16.805. Feriados 2026 actualizados.">
+  <meta property="og:image" content="https://tudiahabiluy.github.io/banner.jpg">
+  <meta property="og:image:secure_url" content="https://tudiahabiluy.github.io/banner.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tudiahabiluy.github.io/">
+  <meta property="og:site_name" content="Tu Día Hábil.UY">
+  <meta property="og:locale" content="es_UY">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tu Día Hábil - Calculadora de Día Hábil Uruguay">
+  <meta name="twitter:description" content="Sumá días hábiles fácil y rápido, descontando fines de semana y feriados uruguayos.">
+  <meta name="twitter:image" content="https://tudiahabiluy.github.io/banner.jpg">
+
+  <!-- Google tag (gtag.js) - manteniendo tu ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T31LL5LK45"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T31LL5LK45');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'Inter', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html{font-family:Inter,system-ui,sans-serif}
+    .font-display{font-family:Outfit,Inter,sans-serif}
+    input[type="date"]::-webkit-calendar-picker-indicator{opacity:0;position:absolute;inset:0;width:100%;height:100%;cursor:pointer}
+    @keyframes slideFadeIn{from{opacity:0;transform:translateY(12px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes confetti{0%{transform:translateY(0) rotate(0) scale(1);opacity:1}100%{transform:translateY(80px) rotate(180deg) scale(0.6);opacity:0}}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:#F6FBF7}
+    ::-webkit-scrollbar-thumb{background:#0F2D1E20;border-radius:10px}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Tu Día Hábil",
+    "alternateName": "TUDIAHABIL.UY",
+    "url": "https://tudiahabiluy.github.io/",
+    "description": "Calculadora de días hábiles en Uruguay con feriados 2026 y Ley 16.805",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": "es-UY",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "UYU"},
+    "author": {"@type": "Organization", "name": "Tu Día Hábil.UY"}
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-[#E8F5E9] text-[#0F2D1E] antialiased selection:bg-[#C6FF5A]/60">
+  <div class="pointer-events-none fixed inset-0 overflow-hidden">
+    <div class="absolute -top-[260px] -right-[200px] h-[680px] w-[680px] rounded-full bg-[#C6FF5A]/40 blur-[90px]"></div>
+    <div class="absolute top-[10%] -left-[220px] h-[560px] w-[560px] rounded-full bg-[#A8E6CF]/50 blur-[80px]"></div>
+    <div class="absolute bottom-[-180px] left-[30%] h-[520px] w-[520px] rounded-full bg-white/70 blur-[60px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-[1160px] px-5 py-7 md:px-8 md:py-10">
+    <!-- Header corregido a TU DIA HABIL -->
+    <header class="flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="font-display flex h-[42px] items-center rounded-full bg-[#0F2D1E] px-4 text-[14px] font-extrabold tracking-[-0.02em] text-white shadow-[0_4px_20px_rgba(15,45,30,0.18)]">
+          <span class="tracking-[0.02em]">TU DÍA HÁBIL</span>
+          <span class="ml-1 font-medium opacity-80 text-[#C6FF5A]">.UY</span>
+        </div>
+        <div class="hidden items-center gap-2 md:flex">
+          <div class="h-px w-6 bg-[#0F2D1E]/15"></div>
+          <p class="max-w-[420px] text-[13.5px] leading-5 text-[#0F2D1E]/60">Calculá vencimientos descontando fines de semana y feriados uruguayos.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="rounded-full border border-[#0F2D1E]/10 bg-white/70 px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-[#0F2D1E]/70 backdrop-blur">2026 • LEY 16.805</span>
+      </div>
+    </header>
+
+    <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[440px_1fr] lg:items-start lg:gap-8">
+      <!-- FORM -->
+      <div class="rounded-[24px] border border-black/[0.06] bg-white/85 p-6 shadow-[0_12px_40px_rgba(15,45,30,0.08),0_0_0_1px_rgba(15,45,30,0.04)] backdrop-blur-xl md:p-7">
+        <div>
+          <label class="font-display text-[13px] font-bold tracking-[0.02em] text-[#0F2D1E]">Fecha de inicio</label>
+          <div class="group relative mt-3">
+            <div class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#0F2D1E]/40">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            </div>
+            <input id="fechaInput" type="date" class="w-full rounded-[14px] border border-[#0F2D1E]/10 bg-[#F6FBF7] py-[13px] pl-11 pr-4 text-[15px] font-medium text-[#0F2D1E] outline-none transition-all duration-200 focus:border-[#10B981] focus:bg-white focus:ring-4 focus:ring-[#10B981]/15">
+          </div>
+          <p class="mt-2 text-[12px] text-[#0F2D1E]/50">Se cuenta desde el día siguiente.</p>
+          <p id="hoyLabel" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#E8F5E9] px-3 py-1 text-[11.5px] font-medium text-[#0F2D1E]/70"><span class="h-1.5 w-1.5 rounded-full bg-[#10B981]"></span> Hoy es ...</p>
+        </div>
+
+        <div class="mt-7">
+          <label class="font-display text-[13px] font-bold tracking-[0.02em] text-[#0F2D1E]">Días hábiles a sumar</label>
+          <div class="mt-3 flex items-center gap-2">
+            <button id="btnMenos" class="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-[14px] border border-[#0F2D1E]/10 bg-white text-[18px] font-medium text-[#0F2D1E] shadow-sm transition hover:bg-[#F6FBF7] active:scale-[0.96]" aria-label="restar">−</button>
+            <div class="relative flex-1">
+              <input id="diasInput" type="number" min="0" value="10" class="w-full rounded-[14px] border border-[#0F2D1E]/10 bg-[#F6FBF7] px-4 py-[13px] text-center text-[17px] font-bold tracking-tight text-[#0F2D1E] outline-none transition focus:border-[#10B981] focus:bg-white focus:ring-4 focus:ring-[#10B981]/15">
+            </div>
+            <button id="btnMas" class="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-[14px] border border-[#0F2D1E]/10 bg-[#0F2D1E] text-[18px] font-medium text-white shadow-[0_4px_12px_rgba(15,45,30,0.2)] transition hover:bg-black active:scale-[0.96]" aria-label="sumar">+</button>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button data-dias="5" class="quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E]/10 bg-white text-[#0F2D1E]/70 hover:border-[#0F2D1E]/20">+5 días</button>
+            <button data-dias="10" class="quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E] bg-[#0F2D1E] text-white shadow-sm">+10 días</button>
+            <button data-dias="15" class="quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E]/10 bg-white text-[#0F2D1E]/70 hover:border-[#0F2D1E]/20">+15 días</button>
+            <button data-dias="30" class="quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E]/10 bg-white text-[#0F2D1E]/70 hover:border-[#0F2D1E]/20">+30 días</button>
+          </div>
+        </div>
+
+        <div class="mt-7 rounded-[16px] border border-[#0F2D1E]/[0.06] bg-[#F6FBF7]/70 p-4">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <p class="text-[13.5px] font-semibold leading-5 text-[#0F2D1E]">Incluir feriados laborables</p>
+              <p class="mt-1 text-[12px] leading-[1.5] text-[#0F2D1E]/55">Carnaval, Turismo, Reyes, Artigas, Difuntos. Recomendado para juzgados.</p>
+            </div>
+            <button id="toggleLaborables" class="relative inline-flex h-[26px] w-[46px] shrink-0 items-center rounded-full border transition-all duration-300 border-[#10B981] bg-[#10B981]" role="switch" aria-checked="true">
+              <span id="toggleDot" class="inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-sm transition-all duration-300 translate-x-[22px]"></span>
+            </button>
+          </div>
+          <div class="mt-3 inline-flex rounded-full bg-[#C6FF5A] px-2.5 py-1 text-[10px] font-bold tracking-[0.06em] text-[#0F2D1E]">RECOMENDADO • MÁS PRECISO</div>
+        </div>
+
+        <button id="btnCalcular" class="group mt-7 flex w-full items-center justify-center gap-2.5 rounded-full bg-[#0F2D1E] px-6 py-[14px] text-[14.5px] font-semibold text-white shadow-[0_8px_24px_rgba(15,45,30,0.22)] transition-all duration-200 hover:translate-y-[-1px] hover:shadow-[0_12px_28px_rgba(15,45,30,0.28)] active:scale-[0.97]">
+          <span>Calcular fecha</span>
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#0F2D1E] transition group-hover:translate-x-0.5">→</span>
+        </button>
+        <p class="mt-3 text-center text-[11px] text-[#0F2D1E]/40">Ley 16.805 • Mar/Mié → lunes anterior • Jue/Vie → lunes siguiente</p>
+      </div>
+
+      <!-- RESULTADO -->
+      <div id="resultContainer" class="lg:sticky lg:top-8">
+        <div class="relative overflow-hidden rounded-[24px] border border-black/[0.06] bg-white/90 shadow-[0_16px_48px_rgba(15,45,30,0.08)] backdrop-blur-xl">
+          <!-- Empty state -->
+          <div id="emptyState" class="px-7 py-14 md:px-10 md:py-20">
+            <div class="mx-auto max-w-[360px] rounded-[20px] border border-dashed border-[#0F2D1E]/15 bg-[#F6FBF7]/60 px-6 py-10 text-center">
+              <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-black/5"><span class="text-[24px]">✦</span></div>
+              <p class="font-display mt-5 text-[16px] font-bold tracking-tight text-[#0F2D1E]">El resultado aparece acá</p>
+              <p class="mx-auto mt-2 max-w-[260px] text-[13px] leading-5 text-[#0F2D1E]/50">Elegí fecha y días hábiles. Calculamos descontando sábados, domingos y feriados uruguayos con traslado por ley 16.805.</p>
+              <div class="mt-6 flex items-center justify-center gap-2 text-[11px] font-medium text-[#0F2D1E]/30"><span class="h-px w-8 bg-[#0F2D1E]/15"></span> preview instantáneo <span class="h-px w-8 bg-[#0F2D1E]/15"></span></div>
+            </div>
+            <div class="mt-8 grid grid-cols-3 gap-3 opacity-60">
+              <div class="rounded-[14px] bg-[#F6FBF7] px-4 py-3 text-center"><p class="font-display text-[18px] font-extrabold leading-none">5</p><p class="mt-1 text-[10px] font-semibold uppercase tracking-wide text-[#0F2D1E]/50">Inamovibles</p></div>
+              <div class="rounded-[14px] bg-[#F6FBF7] px-4 py-3 text-center"><p class="font-display text-[18px] font-extrabold leading-none">3</p><p class="mt-1 text-[10px] font-semibold uppercase tracking-wide text-[#0F2D1E]/50">Trasladables</p></div>
+              <div class="rounded-[14px] bg-[#F6FBF7] px-4 py-3 text-center"><p class="font-display text-[18px] font-extrabold leading-none">10+</p><p class="mt-1 text-[10px] font-semibold uppercase tracking-wide text-[#0F2D1E]/50">Laborables</p></div>
+            </div>
+          </div>
+
+          <!-- Result state -->
+          <div id="resultState" class="hidden px-6 py-7 md:px-8 md:py-8" style="animation:slideFadeIn 420ms cubic-bezier(.16,1,.3,1)">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p id="resultMeta" class="text-[11px] font-bold tracking-[0.14em] text-[#10B981]">RESULTADO • 0 DÍAS CORRIDOS</p>
+                <div class="mt-4">
+                  <h2 id="resultDia" class="font-display text-[40px] font-[800] leading-[0.9] tracking-[-0.04em] text-[#0F2D1E] md:text-[48px]">LUNES 20</h2>
+                  <p id="resultMesAnio" class="mt-2 text-[18px] font-medium tracking-tight text-[#0F2D1E]/70 md:text-[20px]">de mayo de 2026</p>
+                </div>
+                <div class="mt-4 flex flex-wrap items-center gap-2">
+                  <span id="resultISO" class="rounded-full bg-[#0F2D1E] px-3 py-1 text-[11px] font-semibold tracking-wide text-white">ISO 2026-05-20</span>
+                  <span id="resultInicio" class="rounded-full bg-[#E8F5E9] px-3 py-1 text-[11px] font-medium text-[#0F2D1E]/70">Inicio 2026-05-10</span>
+                </div>
+              </div>
+              <button id="btnCopiarIcon" class="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#0F2D1E]/10 bg-white text-[#0F2D1E] shadow-sm transition hover:border-[#0F2D1E]/20 hover:bg-[#F6FBF7] active:scale-[0.96]" title="Copiar fecha">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path></svg>
+              </button>
+            </div>
+
+            <div class="mt-7 grid grid-cols-3 gap-3">
+              <div class="rounded-[16px] border border-black/[0.04] bg-[#F6FBF7] px-4 py-3.5"><p class="text-[10px] font-bold uppercase tracking-[0.08em] text-[#0F2D1E]/40">Hábiles sumados</p><p id="statHabiles" class="font-display mt-1 text-[22px] font-extrabold leading-none tracking-tight">10</p></div>
+              <div class="rounded-[16px] border border-black/[0.04] bg-white px-4 py-3.5"><p class="text-[10px] font-bold uppercase tracking-[0.08em] text-[#0F2D1E]/40">Corridos totales</p><p id="statCorridos" class="font-display mt-1 text-[22px] font-extrabold leading-none tracking-tight">14</p></div>
+              <div class="rounded-[16px] border border-black/[0.04] bg-[#0F2D1E] px-4 py-3.5 text-white"><p class="text-[10px] font-bold uppercase tracking-[0.08em] text-white/50">Salteados</p><p id="statSalteados" class="font-display mt-1 text-[22px] font-extrabold leading-none tracking-tight">4</p></div>
+            </div>
+
+            <div class="mt-8">
+              <div class="flex items-center justify-between"><h3 class="font-display text-[13px] font-bold tracking-wide text-[#0F2D1E]">Días salteados</h3><span id="totalSalteados" class="text-[11px] font-medium text-[#0F2D1E]/40">0 en total</span></div>
+              <div class="mt-4 max-h-[360px] overflow-auto pr-1">
+                <ul id="listaSalteados" class="relative space-y-3"></ul>
+              </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between border-t border-black/[0.06] pt-4">
+              <p class="text-[11px] text-[#0F2D1E]/40">Copiá y pegá en escrito, mail o expediente.</p>
+              <button id="btnCopiarTexto" class="text-[12px] font-semibold text-[#0F2D1E] underline decoration-[#0F2D1E]/20 underline-offset-4 hover:decoration-[#0F2D1E]">Copiar fecha →</button>
+            </div>
+
+            <div class="mt-6 flex gap-2">
+              <button id="btnDescargarICS" class="flex-1 rounded-full border border-[#0F2D1E]/10 bg-white px-4 py-2.5 text-[12px] font-semibold text-[#0F2D1E] hover:bg-[#F6FBF7]">📅 Descargar .ics</button>
+              <button id="btnDescargarTXT" class="flex-1 rounded-full bg-[#0F2D1E] px-4 py-2.5 text-[12px] font-semibold text-white hover:bg-black">📄 Descargar TXT</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-[16px] border border-black/[0.04] bg-white/60 px-5 py-4 backdrop-blur">
+          <p class="text-[12px] leading-[1.6] text-[#0F2D1E]/60"><span class="font-semibold text-[#0F2D1E]">5 no laborables:</span> 1/1, 1/5, 18/7, 25/8, 25/12. <span class="font-semibold text-[#0F2D1E]">3 trasladables</span> Ley 16.805 — si caen mar/mié van al lunes anterior, jue/vie al siguiente. Laborables incluyen Carnaval y Turismo (cálculo de Pascua gregoriana) + Reyes, Artigas, Difuntos.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-10 flex flex-wrap items-center justify-between gap-3 text-[11px] text-[#0F2D1E]/40">
+      <span>© 2026 TU DÍA HÁBIL.UY • Hecho con precisión legal uruguaya • tudiahabiluy.github.io</span>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 ring-1 ring-black/5">🇺🇾 Montevideo</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-50 hidden -translate-x-1/2"><div class="rounded-full bg-[#0F2D1E] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_10px_30px_rgba(0,0,0,0.25)]">Fecha copiada</div></div>
+
+  <script>
+    // ==== MOTOR ORIGINAL - NO TOCADO LOGICA, SOLO REESCRITO LEGIBLE ====
+    const parseISO = (s) => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); }
+    const toISO = (d) => { const y=d.getFullYear(); const m=String(d.getMonth()+1).padStart(2,"0"); const day=String(d.getDate()).padStart(2,"0"); return `${y}-${m}-${day}`; }
+    const addDays = (d,n) => { const nd=new Date(d); nd.setDate(nd.getDate()+n); return nd; }
+
+    function easterSunday(year){
+      const a=year%19, b=Math.floor(year/100), c=year%100, d=Math.floor(b/4), e=b%4, f=Math.floor((b+8)/25), g=Math.floor((b-f+1)/3),
+            h=(19*a+b-d-g+15)%30, i=Math.floor(c/4), k=c%4, l=(32+2*e+2*i-h-k)%7, m=Math.floor((a+11*h+22*l)/451),
+            month=Math.floor((h+l-7*m+114)/31), day=((h+l-7*m+114)%31)+1;
+      return new Date(year, month-1, day);
+    }
+
+    function moveByLaw16805(date){
+      const day=date.getDay(); //0 dom,1 lun...6 sab
+      if(day===0||day===1||day===6) return date;
+      if(day===2||day===3) return addDays(date, -(day-1)); // mar/mie -> lun anterior
+      return addDays(date, 8-day); // jue/vie -> lun siguiente (4->+4, 5->+3)
+    }
+
+    function getHolidays(year, includeLaborables){
+      const map=new Map();
+      // Inamovibles no laborables
+      [[1,1,"Año Nuevo"],[5,1,"Día de los Trabajadores"],[7,18,"Jura de la Constitución"],[8,25,"Declaratoria de la Independencia"],[12,25,"Navidad"]].forEach(([mo,da,name])=>{
+        const d=new Date(year,mo-1,da);
+        map.set(toISO(d), {nombre:name, tipo:"no_laborable"});
+      });
+      // Trasladables no laborables
+      [[4,19,"Desembarco de los Treinta y Tres Orientales"],[5,18,"Batalla de Las Piedras"],[10,12,"Día de la Diversidad Cultural"]].forEach(([mo,da,name])=>{
+        const orig=new Date(year,mo-1,da);
+        const moved=moveByLaw16805(orig);
+        const label=toISO(orig)!==toISO(moved) ? `${name} (original ${String(da).padStart(2,"0")}/${String(mo).padStart(2,"0")} trasladado al ${String(moved.getDate()).padStart(2,"0")}/${String(moved.getMonth()+1).padStart(2,"0")} por ley 16.805)` : `${name} (No laborable)`;
+        map.set(toISO(moved), {nombre:label, tipo:"no_laborable"});
+      });
+      if(includeLaborables){
+        [[1,6,"Día de Reyes"],[6,19,"Natalicio de Artigas"],[11,2,"Día de los Difuntos"]].forEach(([mo,da,name])=>{
+          const d=new Date(year,mo-1,da);
+          map.set(toISO(d), {nombre:`${name} (laborable)`, tipo:"laborable"});
+        });
+        const pascua=easterSunday(year);
+        const lunesCarnaval=addDays(pascua,-48);
+        const martesCarnaval=addDays(pascua,-47);
+        map.set(toISO(lunesCarnaval), {nombre:"Lunes de Carnaval (laborable)", tipo:"laborable"});
+        map.set(toISO(martesCarnaval), {nombre:"Martes de Carnaval (laborable)", tipo:"laborable"});
+        for(let i=6;i>=0;i--){
+          const d=addDays(pascua,-i);
+          const iso=toISO(d);
+          if(!map.has(iso)){
+            const wd=d.toLocaleDateString("es-UY",{weekday:"long"});
+            const wdCap=wd.charAt(0).toUpperCase()+wd.slice(1);
+            map.set(iso, {nombre:`Semana de Turismo - ${wdCap} (laborable)`, tipo:"laborable"});
+          }
+        }
+      }
+      return map;
+    }
+
+    // ==== UI LOGIC ====
+    const fechaInput=document.getElementById("fechaInput");
+    const diasInput=document.getElementById("diasInput");
+    const hoyLabel=document.getElementById("hoyLabel");
+    const btnMenos=document.getElementById("btnMenos");
+    const btnMas=document.getElementById("btnMas");
+    const btnCalcular=document.getElementById("btnCalcular");
+    const toggleLaborables=document.getElementById("toggleLaborables");
+    const toggleDot=document.getElementById("toggleDot");
+    let incluirLaborables=true;
+    let ultimoResultado=null;
+
+    const hoy=new Date();
+    hoyLabel.innerHTML=`<span class="h-1.5 w-1.5 rounded-full bg-[#10B981]"></span> Hoy es ${hoy.toLocaleDateString("es-UY",{day:"numeric",month:"long",year:"numeric"})}`;
+    fechaInput.value=toISO(hoy);
+
+    btnMenos.onclick=()=>{ diasInput.value=Math.max(0, (parseInt(diasInput.value)||0)-1); updateQuickBtns(); }
+    btnMas.onclick=()=>{ diasInput.value=(parseInt(diasInput.value)||0)+1; updateQuickBtns(); }
+    diasInput.oninput=()=>{ diasInput.value=Math.max(0, parseInt(diasInput.value)||0); updateQuickBtns(); }
+
+    document.querySelectorAll(".quick-btn").forEach(btn=>{
+      btn.onclick=()=>{
+        const v=parseInt(btn.dataset.dias);
+        diasInput.value=v;
+        updateQuickBtns();
+      }
+    });
+    function updateQuickBtns(){
+      const cur=parseInt(diasInput.value);
+      document.querySelectorAll(".quick-btn").forEach(b=>{
+        const isActive=parseInt(b.dataset.dias)===cur;
+        b.className=isActive ? "quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E] bg-[#0F2D1E] text-white shadow-sm" : "quick-btn rounded-full border px-3.5 py-1.5 text-[12.5px] font-semibold transition border-[#0F2D1E]/10 bg-white text-[#0F2D1E]/70 hover:border-[#0F2D1E]/20";
+      });
+    }
+
+    toggleLaborables.onclick=()=>{
+      incluirLaborables=!incluirLaborables;
+      toggleLaborables.setAttribute("aria-checked", incluirLaborables);
+      if(incluirLaborables){
+        toggleLaborables.className="relative inline-flex h-[26px] w-[46px] shrink-0 items-center rounded-full border transition-all duration-300 border-[#10B981] bg-[#10B981]";
+        toggleDot.className="inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-sm transition-all duration-300 translate-x-[22px]";
+      } else {
+        toggleLaborables.className="relative inline-flex h-[26px] w-[46px] shrink-0 items-center rounded-full border transition-all duration-300 border-black/10 bg-white";
+        toggleDot.className="inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-sm transition-all duration-300 translate-x-[2px] border border-black/10";
+      }
+    }
+
+    function calcular(){
+      const iso=fechaInput.value;
+      if(!iso) return;
+      const inicio=parseISO(iso);
+      const diasHabiles=Math.max(0, Math.floor(parseInt(diasInput.value)||0));
+      if(diasHabiles===0){
+        mostrarResultado(inicio,inicio,0,[],new Map());
+        return;
+      }
+      const anioInicio=inicio.getFullYear();
+      const aniosNecesarios=Math.ceil(diasHabiles/180)+3;
+      const feriados=new Map();
+      for(let y=anioInicio; y<=anioInicio+aniosNecesarios; y++){
+        getHolidays(y, incluirLaborables).forEach((v,k)=>feriados.set(k,v));
+      }
+      let habiles=0;
+      let cursor=addDays(inicio,1);
+      const skipped=[];
+      let iter=0;
+      while(habiles<diasHabiles && iter<5000){
+        iter++;
+        const isoCur=toISO(cursor);
+        const wd=cursor.getDay();
+        const esFinde=wd===0||wd===6;
+        const fer=feriados.get(isoCur);
+        if(esFinde){
+          skipped.push({fecha:new Date(cursor), iso:isoCur, razon: wd===0 ? "Domingo" : "Sábado", tipo:"weekend"});
+        } else if(fer){
+          skipped.push({fecha:new Date(cursor), iso:isoCur, razon:fer.nombre, tipo:"feriado", feriadoTipo:fer.tipo});
+        } else {
+          habiles++;
+          if(habiles>=diasHabiles) break;
+        }
+        cursor=addDays(cursor,1);
+        // si pasamos de año, cargar más feriados
+        if(cursor.getFullYear() > anioInicio+aniosNecesarios){
+          getHolidays(cursor.getFullYear(), incluirLaborables).forEach((v,k)=>feriados.set(k,v));
+        }
+      }
+      const corridos=Math.round((cursor.getTime()-inicio.getTime())/86400000);
+      mostrarResultado(inicio,cursor,corridos,skipped,feriados);
+      // scroll en mobile
+      if(window.innerWidth<1024) document.getElementById("resultContainer").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    function mostrarResultado(inicio,fin,corridos,skipped,feriados){
+      ultimoResultado={inicio,fin,corridos,skipped};
+      document.getElementById("emptyState").classList.add("hidden");
+      const rs=document.getElementById("resultState");
+      rs.classList.remove("hidden");
+
+      document.getElementById("resultMeta").textContent=`RESULTADO • ${corridos} DÍAS CORRIDOS`;
+      document.getElementById("resultDia").textContent=`${fin.toLocaleDateString("es-UY",{weekday:"long"}).toUpperCase()} ${fin.getDate()}`;
+      document.getElementById("resultMesAnio").textContent=`de ${fin.toLocaleDateString("es-UY",{month:"long"})} de ${fin.getFullYear()}`;
+      document.getElementById("resultISO").textContent=`ISO ${toISO(fin)}`;
+      document.getElementById("resultInicio").textContent=`Inicio ${toISO(inicio)}`;
+      document.getElementById("statHabiles").textContent=diasInput.value;
+      document.getElementById("statCorridos").textContent=corridos;
+      document.getElementById("statSalteados").textContent=skipped.length;
+      document.getElementById("totalSalteados").textContent=`${skipped.length} en total`;
+
+      const ul=document.getElementById("listaSalteados");
+      ul.innerHTML="";
+      if(skipped.length===0){
+        ul.innerHTML=`<li class="rounded-[12px] bg-[#F6FBF7] px-4 py-3 text-[13px] text-[#0F2D1E]/60">Ninguno — contaste días consecutivos hábiles.</li>`;
+      } else {
+        // linea vertical
+        const line=document.createElement("div");
+        line.className="absolute left-[7px] top-2 bottom-2 w-px bg-[#0F2D1E]/10";
+        ul.appendChild(line);
+        skipped.forEach(item=>{
+          const esFinde=item.tipo==="weekend";
+          const esLaborable=item.feriadoTipo==="laborable" || (item.razon && item.razon.toLowerCase().includes("laborable") && !item.razon.toLowerCase().includes("no laborable"));
+          const li=document.createElement("li");
+          li.className="relative flex gap-3 pl-6";
+          li.innerHTML=`
+            <span class="absolute left-0 top-1.5 h-[14px] w-[14px] rounded-full border-2 border-white shadow-sm ring-4 ${esFinde ? "bg-[#D1D5DB] ring-[#D1D5DB]/30" : esLaborable ? "bg-[#F59E0B] ring-[#F59E0B]/30" : "bg-[#10B981] ring-[#10B981]/30"}"></span>
+            <div class="min-w-0 flex-1 rounded-[12px] bg-white px-3.5 py-2.5 ring-1 ring-black/[0.04] transition hover:ring-black/[0.08]">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[11px] font-semibold tracking-wide text-[#0F2D1E]/40">${item.iso} • ${item.fecha.toLocaleDateString("es-UY",{weekday:"short"}).toUpperCase()}</p>
+                <span class="rounded-full px-2 py-0.5 text-[9px] font-bold tracking-wide ${esFinde ? "bg-[#F3F4F6] text-[#6B7280]" : esLaborable ? "bg-amber-50 text-amber-700" : "bg-emerald-50 text-emerald-700"}">${esFinde ? "FIN DE SEMANA" : esLaborable ? "LABORABLE" : "NO LABORABLE"}</span>
+              </div>
+              <p class="mt-1 text-[13px] font-medium leading-[1.35] text-[#0F2D1E]">${item.razon}</p>
+            </div>
+          `;
+          ul.appendChild(li);
+        });
+      }
+    }
+
+    function showToast(msg){
+      const toast=document.getElementById("toast");
+      toast.firstElementChild.textContent=msg;
+      toast.classList.remove("hidden");
+      toast.firstElementChild.style.animation="slideFadeIn 260ms ease-out";
+      setTimeout(()=>toast.classList.add("hidden"), 2200);
+    }
+
+    async function copiarFecha(){
+      if(!ultimoResultado) return;
+      const txt=ultimoResultado.fin.toLocaleDateString("es-UY",{weekday:"long", day:"numeric", month:"long", year:"numeric"});
+      try{ await navigator.clipboard.writeText(txt); showToast("Fecha copiada al portapapeles"); } catch{ showToast(txt); }
+    }
+
+    btnCalcular.onclick=calcular;
+    document.getElementById("btnCopiarIcon").onclick=copiarFecha;
+    document.getElementById("btnCopiarTexto").onclick=copiarFecha;
+    fechaInput.addEventListener("keydown", e=>{ if(e.key==="Enter") calcular(); });
+    diasInput.addEventListener("keydown", e=>{ if(e.key==="Enter") calcular(); });
+
+    document.getElementById("btnDescargarTXT").onclick=()=>{
+      if(!ultimoResultado) return;
+      const {inicio,fin,corridos,skipped}=ultimoResultado;
+      let txt=`TU DIA HABIL.UY - Resultado\n`;
+      txt+=`Inicio: ${toISO(inicio)} (${inicio.toLocaleDateString("es-UY")})\n`;
+      txt+=`Dias habiles: ${diasInput.value}\n`;
+      txt+=`Dias corridos: ${corridos}\n`;
+      txt+=`Resultado: ${toISO(fin)} - ${fin.toLocaleDateString("es-UY",{weekday:"long", day:"numeric", month:"long", year:"numeric"})}\n\n`;
+      txt+=`Dias salteados (${skipped.length}):\n`;
+      skipped.forEach(s=>{ txt+=`- ${s.iso} ${s.razon}\n`; });
+      const blob=new Blob([txt], {type:"text/plain"});
+      const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`tudiahabil-${toISO(fin)}.txt`; a.click();
+    };
+
+    document.getElementById("btnDescargarICS").onclick=()=>{
+      if(!ultimoResultado) return;
+      const fin=ultimoResultado.fin;
+      const iso=toISO(fin).replace(/-/g,"");
+      const ics=`BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Tu Dia Habil//UY//\nBEGIN:VEVENT\nDTSTART;VALUE=DATE:${iso}\nSUMMARY:Vencimiento ${diasInput.value} dias habiles - Tu Dia Habil\nDESCRIPTION:Calculado desde ${toISO(ultimoResultado.inicio)}\nEND:VEVENT\nEND:VCALENDAR`;
+      const blob=new Blob([ics], {type:"text/calendar"});
+      const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`vencimiento-${toISO(fin)}.ics`; a.click();
+    };
+
+    // No auto-calcular: el resultado solo aparece al hacer clic en Calcular (pedido del usuario)
+    // window.addEventListener("load", ()=>{ setTimeout(calcular, 300); }); // <- desactivado
+  </script>
+</body>
+</html>
